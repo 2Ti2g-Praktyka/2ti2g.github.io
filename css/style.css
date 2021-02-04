@@ -5,14 +5,14 @@ body
 
 #navbar
 {
-    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: auto;
     background-color: #eb4343;
     font-family: 'Montserrta', sans-serif;
     font-size: 40px;
+    line-height: normal;
+    color: white;
     height: 80px;
 }
 
@@ -21,14 +21,13 @@ body
     float: left;
     margin-right: 40px;
     margin-left: 40px;
-    padding: 5px;
     transition: all 0.3s;
 }
 
 .navoption:hover
 {
-    color: #bc2e2e;
-    -webkit-text-stroke: 1.5px white;
+    color: #700000;
+    font-size: 42px;
 }
 
 a.navlink
@@ -61,8 +60,7 @@ a.navlink
 
 .box:hover img
 {
-    -webkit-filter: blur(2px);
-    filter: blur(2px);
+    filter: blur(2.5px);
     background-color:#000;
     opacity:0.8;
 }
@@ -70,15 +68,18 @@ a.navlink
 .box-string
 {
     opacity: 0;
+    transition: all 0.8s;
+
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 50px;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 900;
     width: 100%;
-    transition: all 1s;
+
+    font-size: 60px;
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 700;
+    letter-spacing: ;
     color: white;
     -webkit-text-stroke: 2px black;
 }
@@ -96,6 +97,5 @@ a.navlink
 
 .row
 {
-    padding: 0;
-    margin: 0;
+    min-height: 800px;
 }
