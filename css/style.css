@@ -6,41 +6,52 @@ body
 .navbar
 {
     background-color: #eb4343;
-
     height: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    white-space: nowrap;
+}
+
+.nav-link
+{
+    margin-right: 40px;
+    margin-left: 40px;
+    transition: all 0.3s;
 
     font-family: 'Montserrta', sans-serif;
     font-size: 40px;
     line-height: normal;
-    color: white;
+    color: white !important;
 }
 
-.navoption
-{
-    display: inline-block;
-    margin-right: 40px;
-    margin-left: 40px;
-    transition: all 0.3s;
-}
-
-.navoption:hover
+.nav-link:hover
 {
     font-size: 41px;
-    color: #700000;
+    color: #700000 !important;
 }
 
-a.navlink
+.nav-item
 {
-    text-decoration: none;
-    color: white;
+    z-index: 1;
 }
 
-.tiles
+.navbar-collapse.collapsing,
+.navbar-collapse.show
 {
-    text-align: center;
+    margin-top: 22px;
+    z-index: 1;
+    background-color: #ffffffb6;
+    color: #700000 !important;
+}
+
+.navbar-collapse.collapsing .nav-link,
+.navbar-collapse.show .nav-link
+{
+    color: #700000 !important;
+}
+
+.navbar-collapse.collapsing .nav-link:hover,
+.navbar-collapse.show .nav-link:hover
+{
+    color: #e91010 !important;
 }
 
 .overlay
@@ -63,7 +74,7 @@ a.navlink
 .overlay:hover img
 {
     filter: blur(2.5px);
-    background-color: black;
+    background-color black;
     opacity: 0.8;
 }
 

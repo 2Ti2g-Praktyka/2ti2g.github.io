@@ -14,18 +14,55 @@
 		<link rel="stylesheet" href="css/style.css">
 		<link rel="stylesheet" href="css/fontello.css">
 
-
 		<link rel="preconnect" href="https://fonts.gstatic.com">
 		<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700;900&display=swap" rel="stylesheet">
 	</head>
 	<body>
 		
-		<nav class="navbar">
+		<nav class="navbar navbar-expand-lg navbar-light">
 
-			<a href="#" class="navlink"><div class="navoption">MATERIAŁY</div></a>
-			<a href="#" class="navlink"><div class="navoption">O AUTORACH</div></a>
-			<a href="#" class="navlink"><div class="navoption">TEST</div></a>
+			<div class="container-fluid">
+
+				<a class="navbar-brand" href="#">
+					<img src="img/icon.png" width="40" height="40" alt="" class="d-inline-block align-bottom">
+				</a>
+
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div class="collapse navbar-collapse" id="navbarNav">
+
+					<ul class="navbar-nav mx-auto">
+
+						<li class="nav-item dropdown">
+
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								MATERIAŁY
+							</a>
+							
+							<ul class="dropdown-menu ml-20px" aria-labelledby="navbarDropdown">
+								<li><a class="dropdown-item" href="#">Algebra Boole'a</a></li>
+								<li><a class="dropdown-item" href="#">Bramki Logiczne</a></li>
+								<li><a class="dropdown-item" href="#">Układy Cyfrowe</a></li>
+							</ul>
+						  
+						</li>
+
+						<li class="nav-item">
+						  <a class="nav-link" href="#">O PROJEKCIE</a>
+						</li>
+
+						<li class="nav-item">
+						  <a class="nav-link" href="#">TEST</a>
+						</li>
+
+					</ul>
+
+				</div>
+
+			</div>
 
 		</nav>
 
