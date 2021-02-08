@@ -1,0 +1,74 @@
+.sidebar
+{
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Montserrta', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.sidebar .sticky-top
+{
+    top: 350px;
+    z-index: 1;
+}
+
+.list-group
+{
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 600px;
+}
+
+.list-group-item
+{
+    font-weight: 300;
+    transition: all 0.1s;
+}
+
+.list-group-item:hover
+{
+    background-color: #eb4343;
+    color: white;
+}
+
+.content
+{
+    font-family: 'Raleway', sans-serif;
+    background-color: rgba(255, 255, 255, 0.39);
+}
+
+@media (max-width: 575px) /* styl czcionki w kafelku dla najmniejszego rozmiaru strony (xs) */
+{
+    .float-left, .float-right
+    {
+        max-width: 50%;
+    }
+}
+
+.content h1
+{
+    font-size: 40px;
+    margin: 0;
+}
+
+.content h2
+{
+    margin-top: 35px;
+    margin-bottom: 0;
+    font-size: 35px;
+}
+
+.content p
+{
+    margin-top: 15px;
+    margin-bottom: 0;
+    text-align: justify;
+    font-size: 16px;
+    line-height: 1.3;
+}
+
+.row
+{
+    min-height: auto;
+}
