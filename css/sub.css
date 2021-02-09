@@ -1,16 +1,22 @@
+.transition-width
+{
+    transition: width 0.3s ease-out;
+}
+
 .sidebar
 {
-    text-align: center;
-    font-size: 30px;
+    background-color: rgba(0, 0, 0, 0.034);
     font-family: 'Montserrta', sans-serif;
+    font-size: 30px;
     font-weight: 500;
+    text-align: center;
     text-transform: uppercase;
 }
 
 .sidebar .sticky-top
 {
     top: 350px;
-    z-index: 1;
+    z-index: 0;
 }
 
 .list-group
@@ -18,10 +24,12 @@
     margin-left: auto;
     margin-right: auto;
     max-width: 600px;
+    min-width: 180px;
 }
 
 .list-group-item
 {
+    white-space: nowrap;
     font-weight: 300;
     transition: all 0.1s;
 }
@@ -34,11 +42,11 @@
 
 .content
 {
-    font-family: 'Raleway', sans-serif;
     background-color: rgba(255, 255, 255, 0.39);
+    font-family: 'Raleway', sans-serif;
 }
 
-@media (max-width: 575px) /* styl czcionki w kafelku dla najmniejszego rozmiaru strony (xs) */
+@media (max-width: 575px) /* mniejszy rozmiar obrazka z prawej lub lewej strony materiału dla rozmiaru xs */
 {
     .float-left, .float-right
     {
@@ -48,8 +56,8 @@
 
 .content h1
 {
-    font-size: 40px;
     margin: 0;
+    font-size: 40px;
 }
 
 .content h2
@@ -66,9 +74,4 @@
     text-align: justify;
     font-size: 16px;
     line-height: 1.3;
-}
-
-.row
-{
-    min-height: auto;
 }
