@@ -1,16 +1,18 @@
-body
-{
-    background-color: rgba(0, 0, 0, 0.034);
-}
-
 .transition-width
 {
     transition: width 0.3s ease-out;
 }
 
+@media (min-width: 992px) /* odstep miedzy navbarem a contentem dla lg i wyzej */
+{
+    article
+    {
+        margin-top: 60px;
+    }
+}
+
 .sidebar
 {
-    background-color: rgba(0, 0, 0, 0.034);
     font-family: 'Montserrta', sans-serif;
     font-size: 30px;
     font-weight: 500;
@@ -63,6 +65,7 @@ body
 {
     margin: 0;
     font-size: 40px;
+    letter-spacing: 1.5px;
 }
 
 .content h2
@@ -79,9 +82,4 @@ body
     text-align: justify;
     font-size: 16px;
     line-height: 1.3;
-}
-
-footer
-{
-    background-color: rgba(0, 0, 0, 0.034);
 }
