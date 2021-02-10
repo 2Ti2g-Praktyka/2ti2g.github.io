@@ -37,13 +37,33 @@ body
     text-align: center;
     text-transform: uppercase;
     line-height: normal;
+    text-shadow: 0.6px 0.6px 1.5px #000000a4;
     transition: all 0.3s;
 }
 
 .nav-link:hover
 {
-    color: #700000 !important;
+    color: #850000 !important;
+    text-shadow: none;
     transform: scale(1.04);
+}
+
+.dropdown-menu
+{
+    display: block;
+    position: static;
+    margin-left: 125px;
+    max-height: 0;
+    padding: 0;
+    border: 0;
+    overflow: hidden;
+    transition: max-height 0.6s;
+}
+
+.dropdown-menu.show
+{
+    max-height: 500px;
+    transition: max-height 0.6s ease-in;
 }
 
 @media (max-width: 991px) /* styl navbara po collapsie (rozmiar xs i sm)*/
@@ -60,29 +80,18 @@ body
     .nav-link
     {
         color: #800000 !important;
+        text-shadow: none;
     }
 
     .nav-link:hover
     {
         color: #e91010 !important;
     }
-}
 
-.dropdown-menu
-{
-    border: 0;
-    padding: 0;
-    display: block;
-    position: static;
-    max-height: 0;
-    overflow: hidden;
-    transition: all 0.6s;
-}
-
-.dropdown-menu.show
-{
-    max-height: 500px;
-    transition: all 0.6s ease-in;
+    .dropdown-menu
+    {
+        margin-left: unset;
+    }
 }
 
 .dropdown-item
@@ -92,8 +101,8 @@ body
 
 .dropdown-item:hover
 {
-    color: white;
     background-color: #eb4343;
+    color: white;
 }
 
 .navbar-toggler
