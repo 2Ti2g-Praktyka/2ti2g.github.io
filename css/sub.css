@@ -8,7 +8,7 @@
     transition: width 0.3s ease-out;
 }
 
-@media (min-width: 992px) /* odstep miedzy navbarem a contentem dla lg i wyzej */
+@media screen and (min-width: 992px)
 {
     article
     {
@@ -58,7 +58,7 @@
     font-family: 'Raleway', sans-serif;
 }
 
-@media (max-width: 575px) /* mniejszy rozmiar obrazka z prawej lub lewej strony materiału dla rozmiaru xs */
+@media screen and (max-width: 575px) /* mniejszy rozmiar obrazków z prawej lub lewej strony materiału dla rozmiaru xs */
 {
     .float-left, .float-right
     {
@@ -120,7 +120,7 @@
     box-shadow: 0 0 10px 3px #e910104f;
 }
 
-@media (max-width: 991px) /* styl navbara po collapsie (rozmiar xs i sm)*/
+@media (max-width: 991px)
 {
     #back-to-top
     {
