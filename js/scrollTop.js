@@ -1,16 +1,18 @@
-$(document).ready(function(){
-	$(window).scroll(function () {
-			if ($(this).scrollTop() > 40) {
-				$('#back-to-top').fadeIn();
+var j = jQuery.noConflict();
+
+j(document).ready(function(){
+	j(window).scroll(function () {
+			if (j(this).scrollTop() > 40) {
+				j("#back-to-top").fadeIn();
 			} else {
-				$('#back-to-top').fadeOut();
+				j("#back-to-top").fadeOut();
 			}
 		});
 		// scroll body to 0px on click
-		$('#back-to-top').click(function () {
-			$('body,html').animate({
+		j("#back-to-top").click(function () {
+			j("body,html").animate({
 				scrollTop: 0
-			}, 200);
+			}, 350, "linear");
 			return false;
 		});
 });
