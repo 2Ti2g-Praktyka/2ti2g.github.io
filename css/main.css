@@ -17,15 +17,31 @@ body
 
 .nav-item
 {
-    margin: 0 40px;
+    margin: 0 30px;
     transition: margin 0.5s ease-in-out;
 }
 
-@media (max-width: 1191px)
+@media (min-width: 1200px)
 {
     .nav-item
     {
-        margin: 0 30px;
+        margin: 0 40px;
+    }
+}
+
+@media (min-width: 1400px)
+{
+    .nav-item
+    {
+        margin: 0 60px;
+    }
+}
+
+@media (min-width: 2000px)
+{
+    .nav-item
+    {
+        margin: 0 90px;
     }
 }
 
