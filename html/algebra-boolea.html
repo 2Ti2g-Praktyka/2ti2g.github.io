@@ -20,7 +20,34 @@
 		<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&display=swap" rel="stylesheet">
 
 		<script src="../js/jquery-3.5.1.min.js"></script>
-		<script src="../js/jquery.scrollTop.js"></script>
+		<script src="../js/jquery.scrollTo.min.js"></script>
+		<script src="../js/scrollTop.js"></script>
+
+		<script>
+			jQuery(function($){
+				$.scrollTo(0)
+
+				$('#link1').click(() => {
+					$.scrollTo($('#wstep').offset().top -100, 350);
+				});
+
+				$('#link2').click(() => {
+					$.scrollTo($('#wstep').offset().top -100, 350);
+				});
+
+				$('#link3').click(() => {
+					$.scrollTo($('#wstep').offset().top -100, 350);
+				});
+
+				$('#link4').click(() => {
+					$.scrollTo($('#wstep').offset().top -100, 350);
+				});
+
+				$('#link5').click(() => {
+					$.scrollTo($('#wstep').offset().top -100, 350);
+				});
+			});
+		</script>
 
 		<link rel="icon" href="../img/favicon.png">
 	</head>
@@ -89,11 +116,11 @@
 						<aside class="col-lg-3 col-xxl-2 p-5 transition-width sidebar">
 
 							<ul class="list-group">
-								<a href="#" class="list-group-item list-group-item-action">Akapit 1</a>
-								<a href="#" class="list-group-item list-group-item-action">Akapit 2</a>
-								<a href="#" class="list-group-item list-group-item-action">Akapit 3</a>
-								<a href="#" class="list-group-item list-group-item-action">Akapit 4</a>
-								<a href="#" class="list-group-item list-group-item-action">Akapit 5</a>
+								<a id="link1" href="#" class="list-group-item list-group-item-action">Wstęp</a>
+								<a id="link2" href="#" class="list-group-item list-group-item-action">Akapit 2</a>
+								<a id="link3" href="#" class="list-group-item list-group-item-action">Akapit 3</a>
+								<a id="link4" href="#" class="list-group-item list-group-item-action">Akapit 4</a>
+								<a id="link5" href="#" class="list-group-item list-group-item-action">Akapit 5</a>
 							</ul>
 
 						</aside>
@@ -106,14 +133,25 @@
 
 							</header>
 
-							<h2>Lorem ipsum</h2>
+							<h2 id="wstep">Wstęp</h2>
 								
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consectetur, ipsum quis imperdiet pharetra, neque justo lobortis neque, sed scelerisque ante sapien eu nisi. Vivamus volutpat velit id venenatis porta. Suspendisse potenti. Pellentesque ac leo non dui vehicula elementum. Fusce quis mauris vel magna gravida varius. Maecenas feugiat odio vel enim malesuada ullamcorper vel ac velit. Quisque aliquam tortor venenatis mauris facilisis, venenatis auctor ante euismod. Ut in semper erat. Integer quis odio non mauris pharetra molestie. Sed at velit at dui faucibus interdum nec consectetur purus. Phasellus nec eros ornare nibh auctor imperdiet non porttitor turpis.</p>
+							<img class="img-fluid float-end ms-3 mt-2" src="../img/george-boole.jpg" alt="George Boole" width="200px">
 
-							<p>Pellentesque pharetra ornare vehicula. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean pellentesque nec dui ut tristique. Maecenas et velit turpis. Suspendisse potenti. Nullam felis turpis, semper et dolor sit amet, feugiat rhoncus nunc. Donec mollis neque id augue ultricies semper. Curabitur convallis enim at aliquam dictum.</p>
+							<p>Ogólnie algebrą nazwiemy zbiór określonych elementów (np. liczb) oraz działań, które można na nich wykonywać. Przykładowo, każdy z nas posługuje się algebrą liczb rzeczywistych. Zawiera ona nieskończenie wiele liczb. Można na nich wykonywać operacje takie jak np. dodawanie, odejmowanie, mnożenie, czy dzielenie.</p>
 
-							<p>Fusce sed purus tellus. Nullam nec tempus ante. Aenean erat enim, varius a pulvinar et, dictum aliquam urna. Integer ut mi quam. Curabitur efficitur, purus et ullamcorper pellentesque, purus nisl faucibus mauris, eu condimentum tortor lectus ut nisl. In ut egestas diam. Proin ac vestibulum sapien. Nullam gravida ante in odio varius, eu molestie dolor ullamcorper. Sed sed sagittis massa. Phasellus a sem eu arcu lobortis lobortis ut at ante.</p>
+							<p>Komputery i inne urządzenia cyfrowe wykorzystują tylko dwie wartości. W logice formalnej jest to prawda lub fałsz, a w systemach cyfrowych 0 (zero - wyłączony) i 1 (jeden - włączony). Te cyfry również można dodawać, odejmować, mnożyć, czy dzielić, jednak tutaj wyniki mogą być inne. Zestaw tych wartości i operacji nazywamy właśnie tytułową algebrą Boole'a. Jej nazwa pochodzi od nazwiska matematyka, filozofa i logika George’a Boole’a, który opracował jej zasady już w XIX wieku. Znalazła ona swoje zastosowanie w matematyce, informatyce teoretycznej oraz elektronice cyfrowej</p>
 
+							<p>Taka uproszczona algebra może przydać się na przykład do opisania:</p>
+
+							<ul>
+								<li>
+									stanu przycisku, np. wciśnięty (1) lub puszczony (0),
+								</li>
+								<li>
+									stanu wyjścia układu - jest napięcie (1), nie ma napięcia (0).
+								</li>
+							</ul>
+							
 							<h2>Ipsum lorem</h2>
 
 							<p>Aliquam imperdiet ex eget neque porttitor, sed vestibulum ligula maximus. Praesent tellus sapien, venenatis sed odio in, aliquam auctor augue. In non felis bibendum, lacinia lectus in, convallis diam. Sed at consequat nisl. Ut tempus ligula mi, ac pretium tortor commodo quis. Aenean auctor non lacus in venenatis. Duis vel enim vehicula, consectetur elit sed, congue quam.</p>
@@ -130,13 +168,33 @@
 
 							<p>Fusce sed purus tellus. Nullam nec tempus ante. Aenean erat enim, varius a pulvinar et, dictum aliquam urna. Integer ut mi quam. Curabitur efficitur, purus et ullamcorper pellentesque, purus nisl faucibus mauris, eu condimentum tortor lectus ut nisl. In ut egestas diam. Proin ac vestibulum sapien. Nullam gravida ante in odio varius, eu molestie dolor ullamcorper. Sed sed sagittis massa. Phasellus a sem eu arcu lobortis lobortis ut at ante.</p>
 
-							<h2>Ipsum lorem</h2>
+							<h2>Źródła</h2>
 
-							<p>Aliquam imperdiet ex eget neque porttitor, sed vestibulum ligula maximus. Praesent tellus sapien, venenatis sed odio in, aliquam auctor augue. In non felis bibendum, lacinia lectus in, convallis diam. Sed at consequat nisl. Ut tempus ligula mi, ac pretium tortor commodo quis. Aenean auctor non lacus in venenatis. Duis vel enim vehicula, consectetur elit sed, congue quam.</p>
+							<ul>
+								<li>
+									<cite>
+										<a href="https://forbot.pl/blog/technika-cyfrowa-algebra-boolea-w-praktyce-id15137">
+											Technika cyfrowa – #2 – algebra Boole’a w praktyce
+										</a>
+									</cite>
+									<span class="cite-info">
+										, forbot.pl [dostęp 18.02.2020]
+									</span>
+								</li>
 
-							<p>Sed pharetra justo a magna sodales tempor. Aliquam ut finibus nulla. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean laoreet lacus in aliquet gravida. In vestibulum diam eget tellus sollicitudin vestibulum. Suspendisse venenatis tellus lacus, vitae accumsan ex mollis at. Sed blandit vulputate fermentum. Fusce ultrices, lectus eu varius pharetra, sapien diam gravida ante, eget euismod nulla nibh non justo. Nulla consectetur sapien eget felis commodo sagittis. Mauris iaculis ex ac quam iaculis condimentum.</p>
+								<li>
+									<cite>
+										<a href="https://www-users.mat.umk.pl//~zssz/nsi2011/ab.pdf">
+											Algebra Boole’a
+										</a>
+									</cite>
+									<span class="cite-info">
+										, Zbigniew S. Szewczak, materiały Uniwersytetu Mikołaja Kopernika w Toruniu [dostęp 18.02.2020]
+									</span>
+								</li>
 
-							<p>Vestibulum convallis condimentum nisl et venenatis. Maecenas mauris elit, tempor non ex ut, interdum efficitur sem. Morbi ornare nec purus sit amet faucibus. Curabitur sodales felis id varius laoreet. Cras tortor elit, laoreet id tempus vehicula, varius eu libero. Phasellus iaculis pharetra fringilla. Donec dictum diam lacus, eget condimentum ipsum blandit ac. Duis placerat ligula est, vitae feugiat augue posuere in. Donec quis urna sit amet ante consectetur lobortis. Aenean ac lectus in nunc pulvinar maximus. Aliquam mollis quis tortor at bibendum. Integer vitae orci maximus, consectetur est a, vulputate purus. Vivamus ac pellentesque sem, id laoreet velit. Sed elementum orci at elit interdum tempus.</p>
+								
+							</ul>
 
 							<a href="#" id="go-top" class="btn" role="button">
 								<i class="icon-up-open"></i>
