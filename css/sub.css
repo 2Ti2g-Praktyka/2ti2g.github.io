@@ -45,6 +45,8 @@
         transform: translateY(-50%);
         margin-top: 40px; /*do zmiany*/
         min-width: 200px;
+        max-width: 215px;
+        font-size: 28px;
     }
 }
 
