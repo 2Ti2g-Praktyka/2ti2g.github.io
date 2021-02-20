@@ -19,6 +19,25 @@
 		<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700;900&display=swap" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&display=swap" rel="stylesheet">
 
+		<style>
+			p.margin
+			{
+				margin-left: 30px;
+			}
+
+			.table
+			{
+				margin-left: auto;
+				margin-right: auto;
+				width: 70%;
+			}
+
+			.table-bordered
+			{
+				border: rgba(0, 0, 0, 0.486);
+			}
+		</style>
+
 		<script src="../js/jquery-3.5.1.min.js"></script>
 		<script src="../js/jquery.scrollTo.min.js"></script>
 		<script src="../js/scrollTop.js"></script>
@@ -28,23 +47,23 @@
 				$.scrollTo(0)
 
 				$('#link1').click(() => {
-					$.scrollTo($('#wstep').offset().top -100, 350);
+					$.scrollTo($('#wstep').offset().top -90, 350);
 				});
 
 				$('#link2').click(() => {
-					$.scrollTo($('#wstep').offset().top -100, 350);
+					$.scrollTo($('#oznaczenia').offset().top -90, 350);
 				});
 
 				$('#link3').click(() => {
-					$.scrollTo($('#wstep').offset().top -100, 350);
+					$.scrollTo($('#reguly').offset().top -90, 350);
 				});
 
 				$('#link4').click(() => {
-					$.scrollTo($('#wstep').offset().top -100, 350);
+					$.scrollTo($('#wstep').offset().top -90, 350);
 				});
 
 				$('#link5').click(() => {
-					$.scrollTo($('#wstep').offset().top -100, 350);
+					$.scrollTo($('#zrodla').offset().top -90, 350);
 				});
 			});
 		</script>
@@ -117,10 +136,10 @@
 
 							<ul class="list-group">
 								<a id="link1" href="#" class="list-group-item list-group-item-action">Wstęp</a>
-								<a id="link2" href="#" class="list-group-item list-group-item-action">Akapit 2</a>
-								<a id="link3" href="#" class="list-group-item list-group-item-action">Akapit 3</a>
-								<a id="link4" href="#" class="list-group-item list-group-item-action">Akapit 4</a>
-								<a id="link5" href="#" class="list-group-item list-group-item-action">Akapit 5</a>
+								<a id="link2" href="#" class="list-group-item list-group-item-action">Oznaczenia</a>
+								<a id="link3" href="#" class="list-group-item list-group-item-action">Reguły</a>
+								<a id="link4" href="#" class="list-group-item list-group-item-action">&nbsp</a>
+								<a id="link5" href="#" class="list-group-item list-group-item-action">Źródła</a>
 							</ul>
 
 						</aside>
@@ -135,30 +154,101 @@
 
 							<h2 id="wstep">Wstęp</h2>
 								
-							<img class="img-fluid float-end ms-3 mt-2" src="../img/george-boole.jpg" alt="George Boole" width="150px">
+							<figure class="img-fluid float-end ms-3 mt-2">
+								<img src="../img/george-boole.jpg" alt="George Boole" width="150px">
+								<figcaption>George Boole</figcaption>
+							</figure>
 
 							<p>Ogólnie algebrą nazwiemy zbiór określonych elementów (np. liczb) oraz działań, które można na nich wykonywać. Przykładowo, każdy z nas posługuje się algebrą liczb rzeczywistych. Zawiera ona nieskończenie wiele liczb. Można na nich wykonywać operacje takie jak np. dodawanie, odejmowanie, mnożenie, czy dzielenie.</p>
 
-							<p>Komputery i inne urządzenia cyfrowe wykorzystują tylko dwie wartości. W logice formalnej jest to prawda lub fałsz, a w systemach cyfrowych 0 (zero - wyłączony) i 1 (jeden - włączony). Te cyfry również można dodawać, odejmować, mnożyć, czy dzielić, jednak tutaj wyniki mogą być inne. Zestaw tych wartości i operacji nazywamy właśnie tytułową algebrą Boole'a. Jej nazwa pochodzi od nazwiska matematyka, filozofa i logika George’a Boole’a, który opracował jej zasady już w XIX wieku. Znalazła ona swoje zastosowanie w matematyce, informatyce teoretycznej oraz elektronice cyfrowej</p>
+							<p>Komputery i inne urządzenia cyfrowe wykorzystują tylko dwie wartości. W logice formalnej jest to prawda lub fałsz, a w systemach cyfrowych 0 (logiczne zero - wyłączony) i 1 (logiczna jedynka - włączony). Te cyfry również można dodawać, odejmować, mnożyć, czy dzielić, jednak tutaj wyniki mogą być inne. Zestaw tych wartości i operacji nazywamy właśnie tytułową algebrą Boole'a. Jej nazwa pochodzi od nazwiska matematyka, filozofa i logika George’a Boole’a, który opracował jej zasady już w XIX wieku. Znalazła ona swoje zastosowanie w matematyce, informatyce teoretycznej oraz elektronice cyfrowej</p>
 
 							<p>Taka uproszczona algebra może przydać się na przykład do opisania:</p>
 
 							<ul>
 								<li>
-									stanu przycisku, np. wciśnięty (1) lub puszczony (0),
+									stanu przycisku, np. wciśnięty, wysoki (1) lub puszczony, niski (0),
 								</li>
 								<li>
-									stanu wyjścia układu - jest napięcie (1), nie ma napięcia (0).
+									stanu wyjścia układu - jest napięcie (1) lub nie ma napięcia (0).
 								</li>
 							</ul>
 							
-							<h2>Ipsum lorem</h2>
+							<h2 id="oznaczenia">Oznaczenia</h2>
 
-							<p>Aliquam imperdiet ex eget neque porttitor, sed vestibulum ligula maximus. Praesent tellus sapien, venenatis sed odio in, aliquam auctor augue. In non felis bibendum, lacinia lectus in, convallis diam. Sed at consequat nisl. Ut tempus ligula mi, ac pretium tortor commodo quis. Aenean auctor non lacus in venenatis. Duis vel enim vehicula, consectetur elit sed, congue quam.</p>
+							<p>Istnieją co najmniej trzy różne, szeroko rozpowszechnione tradycje oznaczeń w teorii algebr Boole’a. W definicji sformułowanej na Wikipedii użyto symboli <strong>∪, ∩, ~</strong>, ale w częstym użyciu są również <strong>+, ·, ā</strong> oraz <strong>∨, ∧, ¬</strong>. Symbole oznaczające operacje dwuczłonowe algebry Boole’a są prawie zawsze wprowadzane przez wybór jednej z par <strong>(+, ·), (∨, ∧)</strong> albo <strong>(∪, ∩)</strong> W oznaczeniach operacji jednoargumentowej algebry istnieje mniejsza konsekwencja i można się spotkać zarówno z symbolami <strong>+, ·, ~</strong>, jak i <strong>∨, ∧, !</strong>.</p>
 
-							<p>Sed pharetra justo a magna sodales tempor. Aliquam ut finibus nulla. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean laoreet lacus in aliquet gravida. In vestibulum diam eget tellus sollicitudin vestibulum. Suspendisse venenatis tellus lacus, vitae accumsan ex mollis at. Sed blandit vulputate fermentum. Fusce ultrices, lectus eu varius pharetra, sapien diam gravida ante, eget euismod nulla nibh non justo. Nulla consectetur sapien eget felis commodo sagittis. Mauris iaculis ex ac quam iaculis condimentum.</p>
+							<table class="table table-striped table-bordered text-center">
+								<thead>
+									<tr>
+										<th scope="col">Suma</th>
+										<th scope="col">Iloczyn</th>
+										<th scope="col">Negacja</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>∪</td>
+										<td>∩</td>
+										<td>~</td>
+									</tr>
+									<tr>
+										<td>+</td>
+										<td>·</td>
+										<td>ā</td>
+									</tr>
+									<tr>
+										<td>∨</td>
+										<td>∧</td>
+										<td>¬</td>
+									</tr>
+									<tr>
+										<td>|</td>
+										<td>&</td>
+										<td>!</td>
+									</tr>
+									<tr>
+										<td>OR</td>
+										<td>AND</td>
+										<td>NOT</td>
+									</tr>
+								</tbody>
+							</table>
+						
+							<h2 id="reguly">Reguły</h2>
 
-							<p>Vestibulum convallis condimentum nisl et venenatis. Maecenas mauris elit, tempor non ex ut, interdum efficitur sem. Morbi ornare nec purus sit amet faucibus. Curabitur sodales felis id varius laoreet. Cras tortor elit, laoreet id tempus vehicula, varius eu libero. Phasellus iaculis pharetra fringilla. Donec dictum diam lacus, eget condimentum ipsum blandit ac. Duis placerat ligula est, vitae feugiat augue posuere in. Donec quis urna sit amet ante consectetur lobortis. Aenean ac lectus in nunc pulvinar maximus. Aliquam mollis quis tortor at bibendum. Integer vitae orci maximus, consectetur est a, vulputate purus. Vivamus ac pellentesque sem, id laoreet velit. Sed elementum orci at elit interdum tempus.</p>
+							<p class="margin"><strong>a</strong> = dowolna wartość (0 lub 1)</p>
+
+							<p class="margin">
+								a + 0 = a <br/>
+								a · 0 = 0 <br/>
+								a · 1 = a
+							</p>
+
+							<p class="margin">
+								zero (0) nie wpływa na wynik dodawania <br/>
+								mnożenie przez zero (0) zawsze da zero (0) <br/>
+								jeden (1) nie wpływa na wynik mnożenia
+							</p>
+
+							<p>Podobnie, jak zero determinuje wynik mnożenia, tak w algebrze Boole'a jedynka przesądza o wyniku sumowania. Dodanie 1 do jakiejkolwiek liczby zawsze da w efekcie 1. To jest nowość, która dla wielu wydaje się być nieintuicyjna.</p>
+
+							<p class="margin">
+								a + 1 = 1 <br/>
+							</p>
+
+							<p>A co za tym idzie..</p>
+							
+							<p class="margin">
+								a + a = a <br/>
+							</p>
+
+							<p>Negacja to jednoargumentowe działanie, które każdemu zdaniu a przyporządkowuje zdanie ā <strong>(nie a)</strong>. W algebrze Boole'a jest operacją, która przyjmuje tylko jeden argument. W wyniku jej działania otrzymujemy wartość przeciwną. Wynikiem zaprzeczenia "prawdy" będzie "fałsz" i odwrotnie, negacją "fałszu" będzie "prawda".</p>
+
+							<p class="margin">
+								~0 = ¬0 = nie 0 = 1 <br/>
+								~1 = ¬1 = nie 1 = 0
+							</p>
 
 							<h2>Lorem ipsum</h2>
 								
@@ -168,7 +258,7 @@
 
 							<p>Fusce sed purus tellus. Nullam nec tempus ante. Aenean erat enim, varius a pulvinar et, dictum aliquam urna. Integer ut mi quam. Curabitur efficitur, purus et ullamcorper pellentesque, purus nisl faucibus mauris, eu condimentum tortor lectus ut nisl. In ut egestas diam. Proin ac vestibulum sapien. Nullam gravida ante in odio varius, eu molestie dolor ullamcorper. Sed sed sagittis massa. Phasellus a sem eu arcu lobortis lobortis ut at ante.</p>
 
-							<h2>Źródła</h2>
+							<h2 id="zrodla">Źródła</h2>
 
 							<ul>
 								<li>
@@ -178,7 +268,7 @@
 										</a>
 									</cite>
 									<span class="cite-info">
-										, forbot.pl [dostęp 18.02.2020]
+										, Michał Kurzela, Damian Szymański, forbot.pl [dostęp 20.02.2020]
 									</span>
 								</li>
 
@@ -193,7 +283,27 @@
 									</span>
 								</li>
 
-								
+								<li>
+									<cite>
+										<a href="https://www.math.uni.lodz.pl/~marta/2015_2016_l/1_Algebra%20Boole'a_1.pdf">
+											Algebra Boole’a  i jej zastosowania
+										</a>
+									</cite>
+									<span class="cite-info">
+										, materiały Wydziału Matematyki i Informatyki Uniwersytetu Łódzkiego [dostęp 20.02.2020]
+									</span>
+								</li>
+
+								<li>
+									<cite>
+										<a href="https://pl.wikipedia.org/wiki/Algebra_Boole%E2%80%99a">
+											Algebra Boole’a
+										</a>
+									</cite>
+									<span class="cite-info">
+										, Wikipedia, wolna encyklopedia [dostęp 20.02.2020]
+									</span>
+								</li>
 							</ul>
 
 							<a href="#" id="go-top" class="btn" role="button">
@@ -211,7 +321,7 @@
 		</main>
 
 		<footer>
-			<a href="https://github.com/2Ti2g-Praktyka/2ti2g.github.io" target="_blank"><i class="icon-github-circled"></i></a>
+			<a href="https://github.com/2Ti2g-Praktyka/technika-cyfrowa" target="_blank"><i class="icon-github-circled"></i></a>
 		</footer>
 
 		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>

@@ -166,7 +166,7 @@ body
     opacity: 0.8;
 }
 
-.overlay p
+.overlay figcaption
 {
     position: absolute;
     top: 50%;
@@ -185,14 +185,14 @@ body
     transition: all 0.8s;
 }
 
-.overlay:hover p
+.overlay:hover figcaption
 {
     opacity: 100;
 }
 
 @media screen and (min-width: 992px)
 {
-    .overlay p
+    .overlay figcaption
     {
         font-size: 7vw;
         -webkit-text-stroke: 0.15vw black;
@@ -201,7 +201,7 @@ body
 
 @media screen and (min-width: 1400px)
 {
-    .overlay p
+    .overlay figcaption
     {
         font-size: 4vw;
         -webkit-text-stroke: 0.1vw black;
