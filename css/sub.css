@@ -43,10 +43,7 @@
         position: fixed;
         top: 50%;
         transform: translateY(-50%);
-        margin-top: 40px; /*do zmiany*/
-        min-width: 200px;
-        max-width: 215px;
-        font-size: 28px;
+        font-size: 27px;
     }
 }
 
@@ -71,12 +68,12 @@
 
 .content
 {
+    font-family: 'Raleway', sans-serif;
     background-color: rgba(255, 255, 255, 0.39);
 }
 
 .content h1
 {
-    font-family: 'Raleway', sans-serif;
     margin: 0 0 35px;
     font-size: 40px;
     letter-spacing: 1.5px;
@@ -84,9 +81,20 @@
 
 .content h2
 {
-    font-family: 'Raleway', sans-serif;
     margin: 25px 0;
     font-size: 35px;
+}
+
+.content h3
+{
+    margin: 20px 0;
+    font-size: 28px;
+}
+
+.content h3
+{
+    margin: 20px 0;
+    font-size: 24px;
 }
 
 .content p
@@ -115,6 +123,7 @@
 
 .content ul
 {
+    font-family: "Segoe UI", "Helvetica Neue", "Noto Sans", "Liberation Sans", sans-serif !important;
     margin: 0;
     font-size: 18px;
     padding-left: 30px;

@@ -22,14 +22,57 @@
 		<style>
 			p.margin
 			{
+				font-family: "Segoe UI", "Helvetica Neue", "Noto Sans", "Liberation Sans", sans-serif;
 				margin-left: 30px;
+			}
+
+			span.overline
+			{
+				text-decoration: overline;
 			}
 
 			.table
 			{
-				margin-left: auto;
-				margin-right: auto;
-				width: 70%;
+				margin: 30px auto 30px auto;
+			}
+
+			.table-xsmall
+			{
+				width: 40%;
+			}
+
+			@media screen and (min-width: 992px)
+			{
+				.table-xsmall
+				{
+					width: 20%;
+				}
+			}
+
+			.table-small
+			{
+				width: 60%;
+			}
+
+			@media screen and (min-width: 992px)
+			{
+				.table-small
+				{
+					width: 40%;
+				}
+			}
+
+			.table-medium
+			{
+				width: 80%;
+			}
+
+			@media screen and (min-width: 992px)
+			{
+				.table-medium
+				{
+					width: 70%;
+				}
 			}
 
 			.table-bordered
@@ -55,11 +98,11 @@
 				});
 
 				$('#link3').click(() => {
-					$.scrollTo($('#reguly').offset().top -90, 350);
+					$.scrollTo($('#operacje').offset().top -90, 350);
 				});
 
 				$('#link4').click(() => {
-					$.scrollTo($('#lorem-ipsum').offset().top -90, 350);
+					$.scrollTo($('#twierdzenia').offset().top -90, 350);
 				});
 
 				$('#link5').click(() => {
@@ -137,8 +180,8 @@
 							<ul class="list-group">
 								<a id="link1" href="#" class="list-group-item list-group-item-action">Wstęp</a>
 								<a id="link2" href="#" class="list-group-item list-group-item-action">Oznaczenia</a>
-								<a id="link3" href="#" class="list-group-item list-group-item-action">Reguły</a>
-								<a id="link4" href="#" class="list-group-item list-group-item-action">Lorem ipsum</a>
+								<a id="link3" href="#" class="list-group-item list-group-item-action">Operacje</a>
+								<a id="link4" href="#" class="list-group-item list-group-item-action">Twierdzenia</a>
 								<a id="link5" href="#" class="list-group-item list-group-item-action">Źródła</a>
 							</ul>
 
@@ -176,9 +219,9 @@
 							
 							<h2 id="oznaczenia">Oznaczenia</h2>
 
-							<p>Istnieją co najmniej trzy różne, szeroko rozpowszechnione tradycje oznaczeń w teorii algebr Boole’a. W definicji sformułowanej na Wikipedii użyto symboli <strong>∪, ∩, ~</strong>, ale w częstym użyciu są również <strong>+, ·, ā</strong> oraz <strong>∨, ∧, ¬</strong>. Symbole oznaczające operacje dwuczłonowe algebry Boole’a są prawie zawsze wprowadzane przez wybór jednej z par <strong>(+, ·), (∨, ∧)</strong> albo <strong>(∪, ∩)</strong> W oznaczeniach operacji jednoargumentowej algebry istnieje mniejsza konsekwencja i można się spotkać zarówno z symbolami <strong>+, ·, ~</strong>, jak i <strong>∨, ∧, !</strong>.</p>
+							<p>Istnieją co najmniej trzy różne, szeroko rozpowszechnione tradycje oznaczeń w teorii algebr Boole’a. W definicji sformułowanej na Wikipedii użyto symboli <strong>∪, ∩, ~</strong>, ale w częstym użyciu są również <strong>+, ·, ā</strong> oraz <strong>∨, ∧, ¬</strong>. Symbole oznaczające operacje dwuczłonowe algebry Boole’a są prawie zawsze wprowadzane przez wybór jednej z par <strong>(+, ·), (∨, ∧)</strong> albo <strong>(∪, ∩)</strong> W oznaczeniach operacji jednoargumentowej algebry istnieje mniejsza konsekwencja i można się spotkać zarówno z symbolami <strong>+, ·, ~</strong>, jak i <strong>∨, ∧, ’</strong>.</p>
 
-							<table class="table table-striped table-bordered text-center">
+							<table class="table table-striped table-bordered table-medium text-center">
 								<thead>
 									<tr>
 										<th scope="col">Suma</th>
@@ -215,52 +258,223 @@
 								</tbody>
 							</table>
 						
-							<h2 id="reguly">Reguły</h2>
+							<h2 id="operacje">Podstawowe operacje</h2>
+
+							<h3>Alternatywa / suma logiczna / LUB / OR</h3>
+
+							<p>Suma logiczna (inaczej alternatywa) wymaga dwóch argumentów. Gdy przynajmniej jeden z nich ma wartość 1, to wtedy wynik całej funkcji ma wartość 1. W przeciwnym razie, wynik jest zerowy.</p>
+
+							<table class="table table-striped table-bordered table-small text-center">
+								<thead>
+									<tr>
+										<th scope="col">a</th>
+										<th scope="col">b</th>
+										<th scope="col">a ∧ b</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+									</tr>
+									<tr>
+										<td>0</td>
+										<td>1</td>
+										<td>0</td>
+									</tr>
+									<tr>
+										<td>1</td>
+										<td>0</td>
+										<td>0</td>
+									</tr>
+									<tr>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+									</tr>
+								</tbody>
+							</table>
+								
+							<h3>Koniunkcja / iloczyn logiczny / I / AND</h3>
+
+							<p>Iloczyn logiczny (nazywany również koniunkcją) działa podobnie do znanego nam mnożenia: jeżeli wśród argumentów znajdzie się chociaż jedno 0, to wtedy cały wynik będzie zerowy.</p>
+
+							<table class="table table-striped table-bordered table-small text-center">
+								<thead>
+									<tr>
+										<th scope="col">a</th>
+										<th scope="col">b</th>
+										<th scope="col">a ∨ b</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+									</tr>
+									<tr>
+										<td>0</td>
+										<td>1</td>
+										<td>1</td>
+									</tr>
+									<tr>
+										<td>1</td>
+										<td>0</td>
+										<td>1</td>
+									</tr>
+									<tr>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+									</tr>
+								</tbody>
+							</table>
+
+							<h3>Negacja / zaprzeczenie / NIE / NOT</h3>
+
+							<p>Negacja to jednoargumentowe działanie, które każdemu zdaniu <strong>a</strong> przyporządkowuje zdanie <strong>ā (nie a)</strong>. W algebrze Boole'a jest operacją, która przyjmuje tylko jeden argument. W wyniku jej działania otrzymujemy wartość przeciwną. Wynikiem zaprzeczenia "prawdy" będzie "fałsz" i odwrotnie, negacją "fałszu" będzie "prawda".</p>
+
+							<p class="margin">
+								¬0 = nie 0 = 1 <br/>
+								¬1 = nie 1 = 0
+							</p>
+
+							<table class="table table-striped table-bordered table-xsmall text-center">
+								<thead>
+									<tr>
+										<th scope="col">a</th>
+										<th scope="col">¬a</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>0</td>
+										<td>1</td>
+									</tr>
+									<tr>
+										<td>1</td>
+										<td>0</td>
+									</tr>
+								</tbody>
+							</table>
+
+							<h2 id="twierdzenia">Podstawowe aksjomaty i twierdzenia</h2>
+
+							<p>Jak w każdej algebrze, i w tej określono pewne zasady. Są nimi łączność, rozdzielność, przemienność oraz prawa De Morgana. Pierwsze trzy dotyczą wyłącznie operatorów AND i OR. Podobnie, jak zero determinuje wynik mnożenia, tak w algebrze Boole'a jedynka przesądza o wyniku sumowania. Dodanie 1 do jakiejkolwiek liczby zawsze da w efekcie 1. To jest nowość, która dla wielu wydaje się być nieintuicyjna. Podstawowe prawa algebry Boole’a:</p>
 
 							<p class="margin"><strong>a</strong> = dowolna wartość (0 lub 1)</p>
 
+							<p>Prawa przemienności</p>
+
 							<p class="margin">
-								a + 0 = a <br/>
-								a · 0 = 0 <br/>
-								a · 1 = a
+								a ∨ b = b ∨ a <br/>
+								a ∧ b = b ∧ a
+							</p>
+
+							<p class="margin">zmiana kolejności czynników nie zmienia wyniku</p>
+
+							<p>Prawa identyczności</p>
+
+							<p class="margin">
+								a ∨ 0 = a <br/>
+								a ∧ 1 = a <br/> <br/>
+								a ∨ 1 = 1 <br/>
+								a ∧ 0 = 0
 							</p>
 
 							<p class="margin">
 								zero (0) nie wpływa na wynik dodawania <br/>
-								mnożenie przez zero (0) zawsze da zero (0) <br/>
-								jeden (1) nie wpływa na wynik mnożenia
+								jeden (1) nie wpływa na wynik mnożenia <br/> <br/>
+								dodanie jedynki (1) zawsze da jeden (1) <br/>
+								mnożenie przed zero (0) zawsze da zero (0)
 							</p>
 
-							<p>Podobnie, jak zero determinuje wynik mnożenia, tak w algebrze Boole'a jedynka przesądza o wyniku sumowania. Dodanie 1 do jakiejkolwiek liczby zawsze da w efekcie 1. To jest nowość, która dla wielu wydaje się być nieintuicyjna.</p>
+							<p>Prawa idempotentności (operacji między równymi zmiennymi)</p>
 
 							<p class="margin">
-								a + 1 = 1 <br/>
+								a ∨ a = a <br/>
+								a ∧ a = a
 							</p>
-
-							<p>A co za tym idzie..</p>
-							
-							<p class="margin">
-								a + a = a <br/>
-							</p>
-
-							<p>Negacja to jednoargumentowe działanie, które każdemu zdaniu a przyporządkowuje zdanie ā <strong>(nie a)</strong>. W algebrze Boole'a jest operacją, która przyjmuje tylko jeden argument. W wyniku jej działania otrzymujemy wartość przeciwną. Wynikiem zaprzeczenia "prawdy" będzie "fałsz" i odwrotnie, negacją "fałszu" będzie "prawda".</p>
 
 							<p class="margin">
-								~0 = ¬0 = nie 0 = 1 <br/>
-								~1 = ¬1 = nie 1 = 0
+								0 + 0 = 0 oraz 1 + 1 = 1 <br/>
+								0 · 0 = 0 oraz 1 · 1 = 1
 							</p>
 
-							<h2 id="lorem-ipsum">Lorem ipsum</h2>
-								
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consectetur, ipsum quis imperdiet pharetra, neque justo lobortis neque, sed scelerisque ante sapien eu nisi. Vivamus volutpat velit id venenatis porta. Suspendisse potenti. Pellentesque ac leo non dui vehicula elementum. Fusce quis mauris vel magna gravida varius. Maecenas feugiat odio vel enim malesuada ullamcorper vel ac velit. Quisque aliquam tortor venenatis mauris facilisis, venenatis auctor ante euismod. Ut in semper erat. Integer quis odio non mauris pharetra molestie. Sed at velit at dui faucibus interdum nec consectetur purus. Phasellus nec eros ornare nibh auctor imperdiet non porttitor turpis.</p>
+							<p>Prawa dopełnienia (uzupełnienia)</p>
 
-							<p>Pellentesque pharetra ornare vehicula. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean pellentesque nec dui ut tristique. Maecenas et velit turpis. Suspendisse potenti. Nullam felis turpis, semper et dolor sit amet, feugiat rhoncus nunc. Donec mollis neque id augue ultricies semper. Curabitur convallis enim at aliquam dictum.</p>
+							<p class="margin">
+								a ∨ ¬a = 1 <br/>
+								a ∧ ¬a = 0
+							</p>
 
-							<p>Fusce sed purus tellus. Nullam nec tempus ante. Aenean erat enim, varius a pulvinar et, dictum aliquam urna. Integer ut mi quam. Curabitur efficitur, purus et ullamcorper pellentesque, purus nisl faucibus mauris, eu condimentum tortor lectus ut nisl. In ut egestas diam. Proin ac vestibulum sapien. Nullam gravida ante in odio varius, eu molestie dolor ullamcorper. Sed sed sagittis massa. Phasellus a sem eu arcu lobortis lobortis ut at ante.</p>
+							<p class="margin">
+								0 + 1 = 1 oraz 1 + 0 = 1 <br/>
+								0 · 1 = 0 oraz 1 · 0 = 0
+							</p>
+
+							<p>Prawo inwolucji (podwójnej negacji)</p>
+
+							<p class="margin">
+								a = ¬(¬a)
+							</p>
+
+							<p class="margin">
+								a = 0 lub 1 <br/>
+								¬a = 1 lub 0 <br/>
+								¬(¬a) = 0 lub 1 = a
+							</p>
+
+							<p>Prawa łączności</p>
+
+							<p class="margin">
+								a ∧ (b ∧ c) = (a ∧ b) ∧ c <br/>
+								a ∨ (b ∨ c) = (a ∨ b) ∨ c
+							</p>
+
+							<p class="margin">
+								kolejność wykonywania działań przy takim samym operatorze nie ma znaczenia
+							</p>
+
+							<p>Prawa rozdzielności</p>
+
+							<p class="margin">
+								a ∧ (b ∨ c) = (a ∧ b) ∨ (a ∧ c) <br/>
+								a ∨ (b ∧ c) = (a ∨ b) ∧ (a ∨ c)
+							</p>
+
+							<p class="margin">
+								rozdzielność mnożenia względem dodawania (powiązanie z wyłączaniem wspólnego czynnika przed nawias) <br/>
+								rozdzielność dodawania względem mnożenia (taka reguła nie obowiązuje w algebrze elementarnej)
+							</p>
+
+							<p>Prawa pochłaniania (absorpcji)</p>
+
+							<p class="margin">
+								(a ∧ b) ∨ a = a <br/>
+								(a ∨ b) ∧ a = a
+							</p>
+
+							<p>Prawa De Morgana</p>
+
+							<p>Dziewiętnastowieczny matematyk, Augustus De Morgan, zaproponował używane do dziś następujące prawa definiujące koniunkcję i alternatywę. Okazuje się, że podstawowymi operacjami w logice są tylko dwie funkcje: negacja + alternatywa lub negacja + koniunkcja. Za pomocą tych dwóch funkcji można utworzyć wszystkie pozostałe.</p>
+
+							<p class="margin">
+								<span class="overline">a ∧ b</span> = <span class="overline">a</span> V <span class="overline">b</span> <br/>
+								<span class="overline">a V b</span> = <span class="overline">a</span> ∧ <span class="overline">b</span>
+							</p>
+
+							<p class="margin">
+								negacja koniunkcji (mnożenia) jest alternatywą (dodawaniem) negacji <br/>
+								negacja alternatywy (dodawania) jest koniunkcją (mnożeniem) negacji
+							</p>
 
 							<h2 id="zrodla">Źródła</h2>
 
 							<ul>
+
 								<li>
 									<cite>
 										<a href="https://forbot.pl/blog/technika-cyfrowa-algebra-boolea-w-praktyce-id15137">
@@ -268,7 +482,7 @@
 										</a>
 									</cite>
 									<span class="cite-info">
-										, Michał Kurzela, Damian Szymański, forbot.pl [dostęp 20.02.2020]
+										, Michał Kurzela, Damian Szymański, forbot.pl, 2021 [dostęp 20.02.2021]
 									</span>
 								</li>
 
@@ -279,18 +493,62 @@
 										</a>
 									</cite>
 									<span class="cite-info">
-										, Zbigniew S. Szewczak, materiały Uniwersytetu Mikołaja Kopernika w Toruniu [dostęp 18.02.2020]
+										, Zbigniew S. Szewczak, materiały Uniwersytetu Mikołaja Kopernika w Toruniu, 2011 [dostęp 18.02.2021]
 									</span>
 								</li>
 
 								<li>
 									<cite>
 										<a href="https://www.math.uni.lodz.pl/~marta/2015_2016_l/1_Algebra%20Boole'a_1.pdf">
-											Algebra Boole’a  i jej zastosowania
+											Algebra Boole’a i jej zastosowania
 										</a>
 									</cite>
 									<span class="cite-info">
-										, materiały Wydziału Matematyki i Informatyki Uniwersytetu Łódzkiego [dostęp 20.02.2020]
+										, Marta Lipnicka, materiały Wydziału Matematyki i Informatyki Uniwersytetu Łódzkiego, 2015 [dostęp 20.02.2021]
+									</span>
+								</li>
+								
+								<li>
+									<cite>
+										<a href="http://math.uni.lodz.pl/~sibelska/wstepdoinformatyki/algebraboolea.pdf">
+											Algebra Boole'a
+										</a>
+									</cite>
+									<span class="cite-info">
+										, Agnieszka Sibelska, materiały Wydziału Matematyki i Informatyki Uniwersytetu Łódzkiego [dostęp 22.02.2021]
+									</span>
+								</li>
+								
+								<li>
+									<cite>
+										<a href="https://zeszyt.jedlikowski.com/2019-10-21/utk-2/algebra-boolowska/">
+											Algebra boolowska
+										</a>
+									</cite>
+									<span class="cite-info">
+										, Przemysław Jedlikowski, zeszyt.jedlikowski.com, 2019 [dostęp 22.02.2021]
+									</span>
+								</li>
+
+								<li>
+									<cite>
+										<a href="https://youtu.be/e1fGVVXpHqs">
+											Algebra Boole'a II - Prawa de Morgana
+										</a>
+									</cite>
+									<span class="cite-info">
+										, Mat hub, youtube.com, 2016 [dostęp 22.02.2021]
+									</span>
+								</li>
+
+								<li>
+									<cite>
+										<a href="https://eduinf.waw.pl/inf/prg/009_kurs_avr/0009.php">
+											Algebra Boole'a
+										</a>
+									</cite>
+									<span class="cite-info">
+										, mgr inż. Janusz Wałaszek, Serwis Edukacyjny w I-LO w Tarnowie, 2021 [dostęp 22.02.2021]
 									</span>
 								</li>
 
@@ -301,11 +559,12 @@
 										</a>
 									</cite>
 									<span class="cite-info">
-										, Wikipedia, wolna encyklopedia [dostęp 20.02.2020]
+										, Wikipedia, wolna encyklopedia [dostęp 20.02.2021]
 									</span>
 								</li>
-							</ul>
 
+							</ul>
+							
 							<a href="#" id="go-top" class="btn" role="button">
 								<i class="icon-up-open"></i>
 							</a>
