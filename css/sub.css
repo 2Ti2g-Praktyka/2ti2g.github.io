@@ -11,16 +11,17 @@
 .sidebar
 {
     font-family: 'Montserrta', sans-serif;
-    font-size: 30px;
     font-weight: 500;
     text-align: center;
     text-transform: uppercase;
+    font-size: 30px;
 }
 
 .list-group
 {
     margin-left: auto;
     margin-right: auto;
+    min-width: 200px;
     max-width: 500px;
 }
 
@@ -36,19 +37,20 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        font-size: 28px;
     }
 
     .list-group
     {
+        max-width: 225px;
         position: fixed;
         top: 50%;
         transform: translateY(-50%);
-        font-size: 27px;
         margin-top: 40px;
     }
 }
 
-@media screen and (min-width: 992px) and (max-height: 484px)
+@media screen and (min-width: 992px) and (max-height: 484px) /*do zmiany max-height zeby dzialal niezaleznie od wysokosci list-group) */
 {
     .list-group
     {
@@ -140,26 +142,49 @@ figcaption
     text-align: right;
 }
 
-/*figure
+.table
 {
-    position: relative;
+    font-family: "Segoe UI", "Helvetica Neue", "Noto Sans", "Liberation Sans", sans-serif;
+    margin: 30px auto 30px auto;
 }
 
-figure figcaption
+.table-xs
 {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    margin-right: 5px;
-    opacity: 0;
-    color: white;
-    transition: all 1s;
+    width: 40%;
 }
 
-figure:hover figcaption
+.table-sm
 {
-    opacity: 100;
-}*/
+    width: 60%;
+}
+
+.table-md
+{
+    width: 80%;
+}
+
+@media screen and (min-width: 992px)
+{
+    .table-xs
+    {
+        width: 20%;
+    }
+
+    .table-sm
+    {
+        width: 40%;
+    }
+
+    .table-md
+    {
+        width: 70%;
+    }
+}
+
+.table-bordered
+{
+    border: rgba(0, 0, 0, 0.4);
+}
 
 #go-top
 {
@@ -212,3 +237,28 @@ figure:hover figcaption
         width: 50%;
     }
 }
+
+/* koncept
+
+figure
+{
+    position: relative;
+}
+
+figure figcaption
+{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-right: 5px;
+    opacity: 0;
+    color: white;
+    transition: all 1s;
+}
+
+figure:hover figcaption
+{
+    opacity: 100;
+}
+
+*/

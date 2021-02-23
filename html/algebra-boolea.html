@@ -24,6 +24,7 @@
 			{
 				font-family: "Segoe UI", "Helvetica Neue", "Noto Sans", "Liberation Sans", sans-serif;
 				margin-left: 30px;
+				text-align: left;
 			}
 
 			span.overline
@@ -31,53 +32,12 @@
 				text-decoration: overline;
 			}
 
-			.table
-			{
-				margin: 30px auto 30px auto;
-			}
-
-			.table-xsmall
-			{
-				width: 40%;
-			}
-
 			@media screen and (min-width: 992px)
 			{
-				.table-xsmall
+				.sidebar
 				{
-					width: 20%;
+					font-size: 24px;
 				}
-			}
-
-			.table-small
-			{
-				width: 60%;
-			}
-
-			@media screen and (min-width: 992px)
-			{
-				.table-small
-				{
-					width: 40%;
-				}
-			}
-
-			.table-medium
-			{
-				width: 80%;
-			}
-
-			@media screen and (min-width: 992px)
-			{
-				.table-medium
-				{
-					width: 70%;
-				}
-			}
-
-			.table-bordered
-			{
-				border: rgba(0, 0, 0, 0.486);
 			}
 		</style>
 
@@ -106,6 +66,10 @@
 				});
 
 				$('#link5').click(() => {
+					$.scrollTo($('#minimalizacja').offset().top -90, 350);
+				});
+
+				$('#link6').click(() => {
 					$.scrollTo($('#zrodla').offset().top -90, 350);
 				});
 			});
@@ -182,7 +146,8 @@
 								<a id="link2" href="#" class="list-group-item list-group-item-action">Oznaczenia</a>
 								<a id="link3" href="#" class="list-group-item list-group-item-action">Operacje</a>
 								<a id="link4" href="#" class="list-group-item list-group-item-action">Twierdzenia</a>
-								<a id="link5" href="#" class="list-group-item list-group-item-action">Źródła</a>
+								<a id="link5" href="#" class="list-group-item list-group-item-action">Minimalizacja</a>
+								<a id="link6" href="#" class="list-group-item list-group-item-action">Źródła</a>
 							</ul>
 
 						</aside>
@@ -221,7 +186,7 @@
 
 							<p>Istnieją co najmniej trzy różne, szeroko rozpowszechnione tradycje oznaczeń w teorii algebr Boole’a. W definicji sformułowanej na Wikipedii użyto symboli <strong>∪, ∩, ~</strong>, ale w częstym użyciu są również <strong>+, ·, ā</strong> oraz <strong>∨, ∧, ¬</strong>. Symbole oznaczające operacje dwuczłonowe algebry Boole’a są prawie zawsze wprowadzane przez wybór jednej z par <strong>(+, ·), (∨, ∧)</strong> albo <strong>(∪, ∩)</strong> W oznaczeniach operacji jednoargumentowej algebry istnieje mniejsza konsekwencja i można się spotkać zarówno z symbolami <strong>+, ·, ~</strong>, jak i <strong>∨, ∧, ’</strong>.</p>
 
-							<table class="table table-striped table-bordered table-medium text-center">
+							<table class="table table-striped table-bordered table-md text-center">
 								<thead>
 									<tr>
 										<th scope="col">Suma</th>
@@ -264,7 +229,7 @@
 
 							<p>Suma logiczna (inaczej alternatywa) wymaga dwóch argumentów. Gdy przynajmniej jeden z nich ma wartość 1, to wtedy wynik całej funkcji ma wartość 1. W przeciwnym razie, wynik jest zerowy.</p>
 
-							<table class="table table-striped table-bordered table-small text-center">
+							<table class="table table-striped table-bordered table-sm text-center">
 								<thead>
 									<tr>
 										<th scope="col">a</th>
@@ -300,7 +265,7 @@
 
 							<p>Iloczyn logiczny (nazywany również koniunkcją) działa podobnie do znanego nam mnożenia: jeżeli wśród argumentów znajdzie się chociaż jedno 0, to wtedy cały wynik będzie zerowy.</p>
 
-							<table class="table table-striped table-bordered table-small text-center">
+							<table class="table table-striped table-bordered table-sm text-center">
 								<thead>
 									<tr>
 										<th scope="col">a</th>
@@ -341,7 +306,7 @@
 								¬1 = nie 1 = 0
 							</p>
 
-							<table class="table table-striped table-bordered table-xsmall text-center">
+							<table class="table table-striped table-bordered table-xs text-center">
 								<thead>
 									<tr>
 										<th scope="col">a</th>
@@ -470,6 +435,8 @@
 								negacja koniunkcji (mnożenia) jest alternatywą (dodawaniem) negacji <br/>
 								negacja alternatywy (dodawania) jest koniunkcją (mnożeniem) negacji
 							</p>
+
+							<h2 id="minimalizacja">Minimalizacja funkcji logicznych</h2>
 
 							<h2 id="zrodla">Źródła</h2>
 
