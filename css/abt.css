@@ -6,7 +6,7 @@
     transition: margin 0.3s;
 }
 
-@media screen and (min-width: 991px)
+@media screen and (min-width: 992px)
 {
     .content
     {
@@ -14,11 +14,11 @@
     }
 }
 
-@media (max-width: 575px) /* mniejszy rozmiar obrazka z prawej lub lewej strony dla rozmiaru xs */
+@media screen and (max-width: 575px)
 {
-    .float-left, .float-right
+    .float-left .float-right
     {
-        max-width: 50%;
+        width: 50%;
     }
 }
 

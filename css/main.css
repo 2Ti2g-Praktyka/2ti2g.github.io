@@ -47,19 +47,19 @@ body
 
 .nav-link
 {
-    color: white !important;
     font-family: 'Montserrta', sans-serif;
     font-size: 40px;
     text-align: center;
     text-transform: uppercase;
     line-height: normal;
+    color: white;
     text-shadow: 0.6px 0.6px 1.5px #000000a4;
     transition: all 0.3s;
 }
 
 .nav-link:hover
 {
-    color: #850000 !important;
+    color: #850000;
     text-shadow: none;
     transform: scale(1.03);
 }
@@ -95,13 +95,13 @@ body
 
     .nav-link
     {
-        color: #800000 !important;
+        color: #800000;
         text-shadow: none;
     }
 
     .nav-link:hover
     {
-        color: #e91010 !important;
+        color: #e91010;
     }
 
     .dropdown-menu
@@ -123,9 +123,9 @@ body
 
 .navbar-toggler
 {
-    color: #ffffff !important;
     font-size: 35px;
     line-height: 0;
+    color: #ffffff !important;
     border: 2.5px solid transparent;
     border-radius: 8px;
 }
@@ -137,8 +137,8 @@ body
 
 .tiles a /* widoczne jesli zdjecia kafelkow sie nie wczytaja */
 {
-    color: black;
     text-decoration: none;
+    color: black;
 }
 
 .overlay
