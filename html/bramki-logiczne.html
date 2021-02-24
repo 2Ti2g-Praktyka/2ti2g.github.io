@@ -44,7 +44,7 @@
 				font-size: 20px;
 			}
 
-			@media screen and (min-width: 992px) and (max-height: 399px)
+			@media screen and (min-width: 992px) and (max-height: 519px)
 			{
 				.list-group
 				{
@@ -197,9 +197,9 @@
 
 							<h3>Bramka NOT</h3>
 
-							<figure class="img-fluid float-end ms-3 ms-md-4 ms-xl-5">
-								<img src="../img/bramka-not.png" class="bramka" width="200px">
-							</figure>
+							<div class="text-center">
+								<img class="img-fluid float-sm-end ms-sm-3 ms-md-4 ms-xl-5" src="../img/bramka-not.png" width="200px">
+							</div>
 							
 							<p>Bramka NOT jest najprostszą bramką. Jej działanie polega na wykonywaniu logicznej negacji - posiada tylko jedno wejście, a na wyjściu występuje zawsze argument przeciwny.</p>
 
@@ -224,9 +224,9 @@
 							
 							<h3>Bramka AND</h3>
 
-							<figure class="img-fluid float-end ms-3 ms-md-4 ms-xl-5">
-								<img src="../img/bramka-and.png" class="bramka" width="200px">
-							</figure>
+							<div class="text-center">
+								<img class="img-fluid float-sm-end ms-sm-3 ms-md-4 ms-xl-5" src="../img/bramka-and.png" width="200px">
+							</div>
 
 							<p>Przy działaniu bramki logicznej AND wynik 1 można otrzymać tylko w przypadku, kiedy oba wejścia będą równały się jedynce. Tego typu bramki mogą występować w wersjach trzywejściowych, czterowejściowych oraz o znacznie większej liczbie wejść. Należy pamiętać, że niezależnie od tego, ile wejść będzie znajdowało się w stanie wysokim – stan wysoki na wyjściu będzie możliwy tylko w przypadku, jeżeli na każdym wejściu będzie znajdowała się logiczna jedynka.</p>
 							
@@ -266,14 +266,14 @@
 
 							<h3>Bramka NAND (-AND)</h3>	
 
-							<figure class="img-fluid float-end ms-3 ms-md-4 ms-xl-5">
-								<img src="../img/bramka-nand.png" class="bramka" width="200px">
-							</figure>
+							<div class="text-center">
+								<img class="img-fluid float-sm-end ms-sm-3 ms-md-4 ms-xl-5" src="../img/bramka-nand.png" width="200px">
+							</div>
 
 							<p>Bramka NAND realizuje funkcję dokładnie odwrotną do AND. Tak też można interpretować działanie bramki NAND – jest ono dokładnie takie, jakby na wejściu bramki AND zostały umieszczone odpowiednie wartości, na jej wyjściu pojawił się wynik, a następnie został on przepuszczony przez jeszcze bramkę NOT.</p>
 
 							<table class="table table-striped table-bordered table-sm text-center">
-								<thead >
+								<thead>
 									<tr>
 										<th scope="col">A</th>
 										<th scope="col">B</th>
@@ -308,14 +308,14 @@
 
 							<h3>Bramka OR</h3>
 
-							<figure class="img-fluid float-end ms-3 ms-md-4 ms-xl-5">
-								<img src="../img/bramka-or.png" class="bramka" width="200px">
-							</figure>
+							<div class="text-center">
+								<img class="img-fluid float-sm-end ms-sm-3 ms-md-4 ms-xl-5" src="../img/bramka-or.png" width="200px">
+							</div>
 							
 							<p>Na wyjściu bramki OR wynik o wartości 1 pojawi się zawsze w sytuacji, jeżeli chociaż jedno z wejść przyjmuje stan wysoki. Oznacza to również, że jeżeli pojawi się więcej niż jedno wejście o stanie wysokim – na wyjściu również pojawi się jedynka. Tak więc zero pojawi się na wyjściu wyłącznie w sytuacji, kiedy na wszystkich wejściach bramki również ustawione będzie zero. Oczywiście wyjście jest zawsze tylko jedno. Typowy układ zawiera dwa wejścia, ale może posiadać ich nieskończenie wiele i będzie działał na takich samych zasadach.</p>
 							
 							<table class="table table-striped table-bordered table-sm text-center">
-								<thead >
+								<thead>
 									<tr>
 										<th scope="col">A</th>
 										<th scope="col">B</th>
@@ -350,9 +350,9 @@
 
 							<h3>Bramka NOR</h3>
 
-							<figure class="img-fluid float-end ms-3 ms-md-4 ms-xl-5">
-								<img src="../img/bramka-nor.png" class="bramka" width="200px">
-							</figure>
+							<div class="text-center">
+								<img class="img-fluid float-sm-end ms-sm-3 ms-md-4 ms-xl-5" src="../img/bramka-nor.png" width="200px">
+							</div>
 
 							<p>Działanie bramki NOR można określić jako całkowitą odwrotność działania bramki OR – można spojrzeć na nią, jak na działanie bramki OR na wszystkie sygnały wejściowe, jakie otrzymała, a następnie wprowadzenie jej sygnału wyjściowego na wejście bramki NOT – wynik będzie wskazywał na działanie bramki NOR</p>
 
@@ -390,47 +390,47 @@
 								</tbody>
 							</table>
 							
-								<h3>Bramka XOR</h3>
+							<h3>Bramka XOR</h3>
 
-								<figure class="img-fluid float-end ms-3 ms-md-4 ms-xl-5">
-									<img src="../img/bramka-xor.png" class="bramka" width="200px">
-								</figure>
+							<div class="text-center">
+								<img class="img-fluid float-sm-end ms-sm-3 ms-md-4 ms-xl-5" src="../img/bramka-xor.png" width="200px">
+							</div>
 
-								<p>Bramka XOR nie jest już jedną z podstawowych bramek logicznych. Bramka ta posiada na wejściu zawsze dokładnie 2 wejścia (funkcja dwóch zmiennych). Stan prawdy uzyskuje jeżeli tylko jeden ze stanów wejściowych jest równy logicznej jedynce. Stan fałszu otrzymuje wtedy, gdy argumenty na wejściach będą takie same.</p>
+							<p>Bramka XOR nie jest już jedną z podstawowych bramek logicznych. Bramka ta posiada na wejściu zawsze dokładnie 2 wejścia (funkcja dwóch zmiennych). Stan prawdy uzyskuje jeżeli tylko jeden ze stanów wejściowych jest równy logicznej jedynce. Stan fałszu otrzymuje wtedy, gdy argumenty na wejściach będą takie same.</p>
 
-								<table class="table table-striped table-bordered table-sm text-center">
-									<thead>
-										<tr>
-											<th scope="col">A</th>
-											<th scope="col">B</th>
-											<th scope="col">Q</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>0</td>
-											<td>0</td>
-											<td>0</td>
-											
-										</tr>
-										<tr>
-											<td>0</td>
-											<td>1</td>
-											<td>1</td>
-											
-										</tr>
-										<tr>
-											<td>1</td>
-											<td>0</td>
-											<td>1</td>
-										</tr>
-										<tr>
-											<td>1</td>
-											<td>1</td>
-											<td>0</td>
-										</tr>
-									</tbody>
-								</table>
+							<table class="table table-striped table-bordered table-sm text-center">
+								<thead>
+									<tr>
+										<th scope="col">A</th>
+										<th scope="col">B</th>
+										<th scope="col">Q</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+										
+									</tr>
+									<tr>
+										<td>0</td>
+										<td>1</td>
+										<td>1</td>
+										
+									</tr>
+									<tr>
+										<td>1</td>
+										<td>0</td>
+										<td>1</td>
+									</tr>
+									<tr>
+										<td>1</td>
+										<td>1</td>
+										<td>0</td>
+									</tr>
+								</tbody>
+							</table>
 
 							<h2 id="przykład">Przykład użycia bramek logicznych</h2>
 
@@ -441,17 +441,17 @@
 								</div>
 
 								<div class="col-md-4 col-xxl-3">
-									<img src="../img/7400-1.jpg" width="100%" style="margin: 30px 0">
+									<img class="img-fluid rounded my-4" src="../img/7400-1.jpg" width="100%">
 
-									<figure>
-										<img src="../img/7400-2.jpg" width="100%">
-										<figcaption style="text-align: center">Schemat układu SN 7400</figcaption>
+									<figure class="figure">
+										<img class="figure-img img-fluid rounded" src="../img/7400-2.jpg" width="100%">
+										<figcaption class="figure-caption text-center">Schemat układu SN 7400</figcaption>
 									</figure>
 								</div>
 
 							</div>
 							
-							<h2 style="margin-top: 100px;" id="symulator">Symulator układu</h2>
+							<h2 style="margin-top: 100px" id="symulator">Symulator układu</h2>
 
 							<div id="sample">
 
