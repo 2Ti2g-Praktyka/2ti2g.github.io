@@ -132,32 +132,14 @@
     padding-left: 30px;
 }
 
-.img-fluid
-{
-    border-radius: 5px;
-}
-
-img.bramka
-{
-    transition: width 0.3s ease-in-out;
-}
-
-@media screen and (max-width: 575px)
-{
-    img.bramka
-    {
-        width: 150px;
-    }
-}
-
 figure
 {
     margin: 0;
 }
 
-figcaption
+.figure-caption
 {
-    text-align: right;
+    color: rgba(0, 0, 0, 0.849)
 }
 
 .table
@@ -247,28 +229,3 @@ figcaption
         font-size: 25px;
     }
 }
-
-/* koncept
-
-figure
-{
-    position: relative;
-}
-
-figure figcaption
-{
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    margin-right: 5px;
-    opacity: 0;
-    color: white;
-    transition: all 1s;
-}
-
-figure:hover figcaption
-{
-    opacity: 100;
-}
-
-*/
