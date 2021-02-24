@@ -16,8 +16,50 @@
 
 		<link rel="preconnect" href="https://fonts.gstatic.com">
 		<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700;900&display=swap" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700;900&display=swap" rel="stylesheet">
+
+		<style>
+			a.tutaj
+			{
+				color: black;
+				font-weight: 600;
+			}
+
+			a.tutaj:visited
+			{
+				color: black;
+				font-weight: 600;
+			}
+
+			.content h3
+			{
+				margin: 35px 0 18px 0;
+				text-align: center;
+			}
+
+			.content h5
+			{
+				margin: 25px 0;
+				font-size: 20px;
+			}
+
+			p.margin
+			{
+				font-family: "Segoe UI", "Helvetica Neue", "Noto Sans", "Liberation Sans", sans-serif;
+				margin-left: 30px;
+			}
+
+			@media screen and (min-width: 992px) and (max-height: 399px)
+			{
+				.list-group
+				{
+					top: 80px;
+					transform: none;
+					margin-top: 0;
+				}
+			}
+		</style>
 
 		<script src="../js/jquery-3.5.1.min.js"></script>
 		<script src="../js/jquery.scrollTo.min.js"></script>
@@ -25,330 +67,8 @@
 
 		<script src="../js/go.js"></script>
 		<script src="../js/Figures.js"></script>
+		<script src="../js/logicCircuit.js"></script>
 		
-		<script id="code">
-	  
-		  var red = "orangered";  // 0 or false
-		  var green = "forestgreen";  // 1 or true
-	  
-		  function init() {
-			if (window.goSamples) goSamples();  // init for these samples -- you don't need to call this
-			var $ = go.GraphObject.make;  // for conciseness in defining templates
-	  
-			myDiagram =
-			  $(go.Diagram, "myDiagramDiv",  // create a new Diagram in the HTML DIV element "myDiagramDiv"
-				{
-				  "draggingTool.isGridSnapEnabled": true,  // dragged nodes will snap to a grid of 10x10 cells
-				  "undoManager.isEnabled": true
-				});
-	  
-			// when the document is modified, add a "*" to the title and enable the "Save" button
-			myDiagram.addDiagramListener("Modified", function(e) {
-			  var button = document.getElementById("saveModel");
-			  if (button) button.disabled = !myDiagram.isModified;
-			  var idx = document.title.indexOf("*");
-			  if (myDiagram.isModified) {
-				if (idx < 0) document.title += "*";
-			  } else {
-				if (idx >= 0) document.title = document.title.substr(0, idx);
-			  }
-			});
-	  
-			var palette = new go.Palette("palette");  // create a new Palette in the HTML DIV element "palette"
-	  
-			// creates relinkable Links that will avoid crossing Nodes when possible and will jump over other Links in their paths
-			myDiagram.linkTemplate =
-			  $(go.Link,
-				{
-				  routing: go.Link.AvoidsNodes,
-				  curve: go.Link.JumpOver,
-				  corner: 3,
-				  relinkableFrom: true, relinkableTo: true,
-				  selectionAdorned: false, // Links are not adorned when selected so that their color remains visible.
-				  shadowOffset: new go.Point(0, 0), shadowBlur: 5, shadowColor: "blue",
-				},
-				new go.Binding("isShadowed", "isSelected").ofObject(),
-				$(go.Shape,
-				  { name: "SHAPE", strokeWidth: 2, stroke: red }));
-	  
-			// node template helpers
-			var sharedToolTip =
-			  $("ToolTip",
-				{ "Border.figure": "RoundedRectangle" },
-				$(go.TextBlock, { margin: 2 },
-				  new go.Binding("text", "", function(d) { return d.category; })));
-	  
-			// define some common property settings
-			function nodeStyle() {
-			  return [new go.Binding("location", "loc", go.Point.parse).makeTwoWay(go.Point.stringify),
-			  new go.Binding("isShadowed", "isSelected").ofObject(),
-			  {
-				selectionAdorned: false,
-				shadowOffset: new go.Point(0, 0),
-				shadowBlur: 15,
-				shadowColor: "blue",
-				toolTip: sharedToolTip
-			  }];
-			}
-	  
-			function shapeStyle() {
-			  return {
-				name: "NODESHAPE",
-				fill: "lightgray",
-				stroke: "darkslategray",
-				desiredSize: new go.Size(40, 40),
-				strokeWidth: 2
-			  };
-			}
-	  
-			function portStyle(input) {
-			  return {
-				desiredSize: new go.Size(6, 6),
-				fill: "black",
-				fromSpot: go.Spot.Right,
-				fromLinkable: !input,
-				toSpot: go.Spot.Left,
-				toLinkable: input,
-				toMaxLinks: 1,
-				cursor: "pointer"
-			  };
-			}
-	  
-			// define templates for each type of node
-			var inputTemplate =
-			  $(go.Node, "Spot", nodeStyle(),
-				$(go.Shape, "Circle", shapeStyle(),
-				  { fill: red }),  // override the default fill (from shapeStyle()) to be red
-				$(go.Shape, "Rectangle", portStyle(false),  // the only port
-				  { portId: "", alignment: new go.Spot(1, 0.5) }),
-				{ // if double-clicked, an input node will change its value, represented by the color.
-				  doubleClick: function(e, obj) {
-					e.diagram.startTransaction("Toggle Input");
-					var shp = obj.findObject("NODESHAPE");
-					shp.fill = (shp.fill === green) ? red : green;
-					updateStates();
-					e.diagram.commitTransaction("Toggle Input");
-				  }
-				}
-			  );
-	  
-			var outputTemplate =
-			  $(go.Node, "Spot", nodeStyle(),
-				$(go.Shape, "Rectangle", shapeStyle(),
-				  { fill: green }),  // override the default fill (from shapeStyle()) to be green
-				$(go.Shape, "Rectangle", portStyle(true),  // the only port
-				  { portId: "", alignment: new go.Spot(0, 0.5) })
-			  );
-	  
-			var andTemplate =
-			  $(go.Node, "Spot", nodeStyle(),
-				$(go.Shape, "AndGate", shapeStyle()),
-				$(go.Shape, "Rectangle", portStyle(true),
-				  { portId: "in1", alignment: new go.Spot(0, 0.3) }),
-				$(go.Shape, "Rectangle", portStyle(true),
-				  { portId: "in2", alignment: new go.Spot(0, 0.7) }),
-				$(go.Shape, "Rectangle", portStyle(false),
-				  { portId: "out", alignment: new go.Spot(1, 0.5) })
-			  );
-	  
-			var orTemplate =
-			  $(go.Node, "Spot", nodeStyle(),
-				$(go.Shape, "OrGate", shapeStyle()),
-				$(go.Shape, "Rectangle", portStyle(true),
-				  { portId: "in1", alignment: new go.Spot(0.16, 0.3) }),
-				$(go.Shape, "Rectangle", portStyle(true),
-				  { portId: "in2", alignment: new go.Spot(0.16, 0.7) }),
-				$(go.Shape, "Rectangle", portStyle(false),
-				  { portId: "out", alignment: new go.Spot(1, 0.5) })
-			  );
-	  
-			var xorTemplate =
-			  $(go.Node, "Spot", nodeStyle(),
-				$(go.Shape, "XorGate", shapeStyle()),
-				$(go.Shape, "Rectangle", portStyle(true),
-				  { portId: "in1", alignment: new go.Spot(0.26, 0.3) }),
-				$(go.Shape, "Rectangle", portStyle(true),
-				  { portId: "in2", alignment: new go.Spot(0.26, 0.7) }),
-				$(go.Shape, "Rectangle", portStyle(false),
-				  { portId: "out", alignment: new go.Spot(1, 0.5) })
-			  );
-	  
-			var norTemplate =
-			  $(go.Node, "Spot", nodeStyle(),
-				$(go.Shape, "NorGate", shapeStyle()),
-				$(go.Shape, "Rectangle", portStyle(true),
-				  { portId: "in1", alignment: new go.Spot(0.16, 0.3) }),
-				$(go.Shape, "Rectangle", portStyle(true),
-				  { portId: "in2", alignment: new go.Spot(0.16, 0.7) }),
-				$(go.Shape, "Rectangle", portStyle(false),
-				  { portId: "out", alignment: new go.Spot(1, 0.5) })
-			  );
-	  
-			var xnorTemplate =
-			  $(go.Node, "Spot", nodeStyle(),
-				$(go.Shape, "XnorGate", shapeStyle()),
-				$(go.Shape, "Rectangle", portStyle(true),
-				  { portId: "in1", alignment: new go.Spot(0.26, 0.3) }),
-				$(go.Shape, "Rectangle", portStyle(true),
-				  { portId: "in2", alignment: new go.Spot(0.26, 0.7) }),
-				$(go.Shape, "Rectangle", portStyle(false),
-				  { portId: "out", alignment: new go.Spot(1, 0.5) })
-			  );
-	  
-			var nandTemplate =
-			  $(go.Node, "Spot", nodeStyle(),
-				$(go.Shape, "NandGate", shapeStyle()),
-				$(go.Shape, "Rectangle", portStyle(true),
-				  { portId: "in1", alignment: new go.Spot(0, 0.3) }),
-				$(go.Shape, "Rectangle", portStyle(true),
-				  { portId: "in2", alignment: new go.Spot(0, 0.7) }),
-				$(go.Shape, "Rectangle", portStyle(false),
-				  { portId: "out", alignment: new go.Spot(1, 0.5) })
-			  );
-	  
-			var notTemplate =
-			  $(go.Node, "Spot", nodeStyle(),
-				$(go.Shape, "Inverter", shapeStyle()),
-				$(go.Shape, "Rectangle", portStyle(true),
-				  { portId: "in", alignment: new go.Spot(0, 0.5) }),
-				$(go.Shape, "Rectangle", portStyle(false),
-				  { portId: "out", alignment: new go.Spot(1, 0.5) })
-			  );
-	  
-			// add the templates created above to myDiagram and palette
-			myDiagram.nodeTemplateMap.add("input", inputTemplate);
-			myDiagram.nodeTemplateMap.add("output", outputTemplate);
-			myDiagram.nodeTemplateMap.add("and", andTemplate);
-			myDiagram.nodeTemplateMap.add("or", orTemplate);
-			myDiagram.nodeTemplateMap.add("xor", xorTemplate);
-			myDiagram.nodeTemplateMap.add("not", notTemplate);
-			myDiagram.nodeTemplateMap.add("nand", nandTemplate);
-			myDiagram.nodeTemplateMap.add("nor", norTemplate);
-			myDiagram.nodeTemplateMap.add("xnor", xnorTemplate);
-	  
-			// share the template map with the Palette
-			palette.nodeTemplateMap = myDiagram.nodeTemplateMap;
-	  
-			palette.model.nodeDataArray = [
-			  { category: "input" },
-			  { category: "output" },
-			  { category: "and" },
-			  { category: "or" },
-			  { category: "xor" },
-			  { category: "not" },
-			  { category: "nand" },
-			  { category: "nor" },
-			  { category: "xnor" }
-			];
-	  
-			// load the initial diagram
-			load();
-	  
-			// continually update the diagram
-			loop();
-		  }
-	  
-		  // update the diagram every 250 milliseconds
-		  function loop() {
-			setTimeout(function() { updateStates(); loop(); }, 250);
-		  }
-	  
-		  // update the value and appearance of each node according to its type and input values
-		  function updateStates() {
-			var oldskip = myDiagram.skipsUndoManager;
-			myDiagram.skipsUndoManager = true;
-			// do all "input" nodes first
-			myDiagram.nodes.each(function(node) {
-			  if (node.category === "input") {
-				doInput(node);
-			  }
-			});
-			// now we can do all other kinds of nodes
-			myDiagram.nodes.each(function(node) {
-			  switch (node.category) {
-				case "and": doAnd(node); break;
-				case "or": doOr(node); break;
-				case "xor": doXor(node); break;
-				case "not": doNot(node); break;
-				case "nand": doNand(node); break;
-				case "nor": doNor(node); break;
-				case "xnor": doXnor(node); break;
-				case "output": doOutput(node); break;
-				case "input": break;  // doInput already called, above
-			  }
-			});
-			myDiagram.skipsUndoManager = oldskip;
-		  }
-	  
-		  // helper predicate
-		  function linkIsTrue(link) {  // assume the given Link has a Shape named "SHAPE"
-			return link.findObject("SHAPE").stroke === green;
-		  }
-	  
-		  // helper function for propagating results
-		  function setOutputLinks(node, color) {
-			node.findLinksOutOf().each(function(link) { link.findObject("SHAPE").stroke = color; });
-		  }
-	  
-		  // update nodes by the specific function for its type
-		  // determine the color of links coming out of this node based on those coming in and node type
-	  
-		  function doInput(node) {
-			// the output is just the node's Shape.fill
-			setOutputLinks(node, node.findObject("NODESHAPE").fill);
-		  }
-	  
-		  function doAnd(node) {
-			var color = node.findLinksInto().all(linkIsTrue) ? green : red;
-			setOutputLinks(node, color);
-		  }
-		  function doNand(node) {
-			var color = !node.findLinksInto().all(linkIsTrue) ? green : red;
-			setOutputLinks(node, color);
-		  }
-		  function doNot(node) {
-			var color = !node.findLinksInto().all(linkIsTrue) ? green : red;
-			setOutputLinks(node, color);
-		  }
-	  
-		  function doOr(node) {
-			var color = node.findLinksInto().any(linkIsTrue) ? green : red;
-			setOutputLinks(node, color);
-		  }
-		  function doNor(node) {
-			var color = !node.findLinksInto().any(linkIsTrue) ? green : red;
-			setOutputLinks(node, color);
-		  }
-	  
-		  function doXor(node) {
-			var truecount = 0;
-			node.findLinksInto().each(function(link) { if (linkIsTrue(link)) truecount++; });
-			var color = truecount % 2 !== 0 ? green : red;
-			setOutputLinks(node, color);
-		  }
-		  function doXnor(node) {
-			var truecount = 0;
-			node.findLinksInto().each(function(link) { if (linkIsTrue(link)) truecount++; });
-			var color = truecount % 2 === 0 ? green : red;
-			setOutputLinks(node, color);
-		  }
-	  
-		  function doOutput(node) {
-			// assume there is just one input link
-			// we just need to update the node's Shape.fill
-			node.linksConnected.each(function(link) { node.findObject("NODESHAPE").fill = link.findObject("SHAPE").stroke; });
-		  }
-	  
-		  // save a model to and load a model from JSON text, displayed below the Diagram
-		  function save() {
-			document.getElementById("mySavedModel").value = myDiagram.model.toJson();
-			myDiagram.isModified = false;
-		  }
-		  function load() {
-			myDiagram.model = go.Model.fromJson(document.getElementById("mySavedModel").value);
-		  }
-		</script>
-
 		<script>
 			jQuery(function($){
 				$.scrollTo(0)
@@ -358,19 +78,23 @@
 				});
 
 				$('#link2').click(() => {
-					$.scrollTo($('#symulator').offset().top -90, 350);
+					$.scrollTo($('#zasada').offset().top -90, 350);
 				});
 
 				$('#link3').click(() => {
-					$.scrollTo($('#wstep').offset().top -90, 350);
+					$.scrollTo($('#bramki').offset().top -90, 350);
 				});
 
 				$('#link4').click(() => {
-					$.scrollTo($('#wstep').offset().top -90, 350);
+					$.scrollTo($('#przykład').offset().top -90, 350);
 				});
 
 				$('#link5').click(() => {
-					$.scrollTo($('#wstep').offset().top -90, 350);
+					$.scrollTo($('#symulator').offset().top -90, 350);
+				});
+
+				$('#link6').click(() => {
+					$.scrollTo($('#zrodla').offset().top -90, 350);
 				});
 			});
 		</script>
@@ -444,10 +168,11 @@
 
 							<ul class="list-group">
 								<a id="link1" href="#" class="list-group-item list-group-item-action">Wstęp</a>
-								<a id="link2" href="#" class="list-group-item list-group-item-action">Symulator układu</a>
-								<a id="link3" href="#" class="list-group-item list-group-item-action">Lorem</a>
-								<a id="link4" href="#" class="list-group-item list-group-item-action">Ipsum</a>
-								<a id="link5" href="#" class="list-group-item list-group-item-action">Dolor</a>
+								<a id="link2" href="#" class="list-group-item list-group-item-action">Zasada działania</a>
+								<a id="link3" href="#" class="list-group-item list-group-item-action">Bramki</a>
+								<a id="link4" href="#" class="list-group-item list-group-item-action">Przykład</a>
+								<a id="link5" href="#" class="list-group-item list-group-item-action">Symulator Układu</a>
+								<a id="link6" href="#" class="list-group-item list-group-item-action">Źródła</a>
 							</ul>
 
 						</aside>
@@ -455,16 +180,284 @@
 						<div class="col-lg-8 col-xxl-9 p-5 transition-width content">
 
 							<header>
-
 								<h1 class="text-center">Bramki Logiczne</h1>
-
 							</header>
 
-							<h2 id="wstep">Wstep</h2>
+							<h2 id="wstep">Wstęp</h2>
 
-							<p>Suspendisse et nibh vel libero aliquam lacinia. Sed vel ultrices neque, id iaculis turpis. Maecenas varius quam at dignissim tempus. Quisque sit amet congue orci, vitae vehicula massa. Sed mattis risus quis augue vulputate tempus. Quisque consectetur neque sed massa egestas, sit amet facilisis diam pellentesque. Maecenas vitae mauris et nisl feugiat malesuada. Pellentesque risus elit, eleifend a scelerisque eget, porttitor sit amet dolor. Phasellus at massa diam. Curabitur ac commodo risus. Etiam nec tincidunt ante. Donec nisl neque, sagittis nec scelerisque et, ullamcorper id quam. Suspendisse condimentum blandit congue.</p>
+							<p><strong>Co to w ogóle jest bramka logiczna?</strong> - bramka logiczna to element elektroniczny, który przyjmuje sygnały binarne na wejściach i zwraca wartości 1 lub 0 - czyli prawdę lub fałsz.</p>
 
-							<h2 id="symulator">Symulator układu</h2>
+							<p>Bramki logiczne stanowią elementy konstrukcyjne maszyn, automatów czy robotów. Komputery z których korzystamy wykorzystują miliony bramek logicznych. Obecne najczęściej są to układy scalone, składające się z wielu odpowienio podłączonych tranzystorów</p>
+
+							<p>Bramki logiczne są ściśle powiązane z Algebrą Boole'a, więc jeśli jeszcze nie czytałeś naszego artykułu o Algerze Boole'a, kliknij <a class="tutaj" href="../html/algebra-boolea.html">TUTAJ</a>.</p>
+					
+							<h2 id="zasada">Uproszczona zasada działania</h2>
+
+							<p>Bramka logiczna realizuje fizycznie prostą funkcję logiczną której zmienne oraz funkcja przybiera wartości 1 lub 0.</p>
+
+							<p>W uproszczeniu zasada działania bramek polega na podaniu jednego z dwóch napięć elektrycznych (poziomów logicznych). Jest to napięcie o wartościach w granicach między 0 V a 0,8 V (poziom 0 – fałsz), natomiast druga wartość napięcia powinna zawierać się w przedziale między 2 V a 5 V (poziom 1 – prawda). Rozróżnienie tego typu – przy pomocy takiej wartości napięć – stosuje się w układach typu TTL.</p>
+
+							<p>To właśnie z bramek logicznych są tworzone bardziej zaawansowane <a class="tutaj" href="../html/uklady-cyfrowe.html">Układy Cyfrowe</a>.</p>
+
+							<h2 id="bramki">Rodzaje bramek</h2>
+
+							<h3>Bramka NOT</h3>
+
+							<figure class="img-fluid float-end ms-3 ms-md-4 ms-xl-5">
+								<img src="../img/bramka-not.png" class="bramka" width="200px">
+							</figure>
+							
+							<p>Bramka NOT jest najprostszą bramką. Jej działanie polega na wykonywaniu logicznej negacji - posiada tylko jedno wejście, a na wyjściu występuje zawsze argument przeciwny.</p>
+
+							<table style="margin-top: 35px;" class="table table-striped table-bordered table-sm text-center">
+								<thead>
+									<tr>
+										<th scope="col">A</th>
+										<th scope="col">Q</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>1</td>
+										<td>0</td>
+										
+									</tr>
+									<tr>
+										<td>0</td>
+										<td>1</td>
+								</tbody>
+							</table>
+							
+							<h3>Bramka AND</h3>
+
+							<figure class="img-fluid float-end ms-3 ms-md-4 ms-xl-5">
+								<img src="../img/bramka-and.png" class="bramka" width="200px">
+							</figure>
+
+							<p>Przy działaniu bramki logicznej AND wynik 1 można otrzymać tylko w przypadku, kiedy oba wejścia będą równały się jedynce. Tego typu bramki mogą występować w wersjach trzywejściowych, czterowejściowych oraz o znacznie większej liczbie wejść. Należy pamiętać, że niezależnie od tego, ile wejść będzie znajdowało się w stanie wysokim – stan wysoki na wyjściu będzie możliwy tylko w przypadku, jeżeli na każdym wejściu będzie znajdowała się logiczna jedynka.</p>
+							
+							<table class="table table-striped table-bordered table-sm text-center">
+								<thead>
+									<tr>
+										<th scope="col">A</th>
+										<th scope="col">B</th>
+										<th scope="col">Q</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+										
+									</tr>
+									<tr>
+										<td>0</td>
+										<td>1</td>
+										<td>0</td>
+										
+									</tr>
+									<tr>
+										<td>1</td>
+										<td>0</td>
+										<td>0</td>
+									</tr>
+									<tr>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+									</tr>
+								</tbody>
+							</table>
+
+							<h3>Bramka NAND (-AND)</h3>	
+
+							<figure class="img-fluid float-end ms-3 ms-md-4 ms-xl-5">
+								<img src="../img/bramka-nand.png" class="bramka" width="200px">
+							</figure>
+
+							<p>Bramka NAND realizuje funkcję dokładnie odwrotną do AND. Tak też można interpretować działanie bramki NAND – jest ono dokładnie takie, jakby na wejściu bramki AND zostały umieszczone odpowiednie wartości, na jej wyjściu pojawił się wynik, a następnie został on przepuszczony przez jeszcze bramkę NOT.</p>
+
+							<table class="table table-striped table-bordered table-sm text-center">
+								<thead >
+									<tr>
+										<th scope="col">A</th>
+										<th scope="col">B</th>
+										<th scope="col">Q</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>0</td>
+										<td>0</td>
+										<td>1</td>
+										
+									</tr>
+									<tr>
+										<td>0</td>
+										<td>1</td>
+										<td>1</td>
+										
+									</tr>
+									<tr>
+										<td>1</td>
+										<td>0</td>
+										<td>1</td>
+									</tr>
+									<tr>
+										<td>1</td>
+										<td>1</td>
+										<td>0</td>
+									</tr>
+								</tbody>
+							</table>
+
+							<h3>Bramka OR</h3>
+
+							<figure class="img-fluid float-end ms-3 ms-md-4 ms-xl-5">
+								<img src="../img/bramka-or.png" class="bramka" width="200px">
+							</figure>
+							
+							<p>Na wyjściu bramki OR wynik o wartości 1 pojawi się zawsze w sytuacji, jeżeli chociaż jedno z wejść przyjmuje stan wysoki. Oznacza to również, że jeżeli pojawi się więcej niż jedno wejście o stanie wysokim – na wyjściu również pojawi się jedynka. Tak więc zero pojawi się na wyjściu wyłącznie w sytuacji, kiedy na wszystkich wejściach bramki również ustawione będzie zero. Oczywiście wyjście jest zawsze tylko jedno. Typowy układ zawiera dwa wejścia, ale może posiadać ich nieskończenie wiele i będzie działał na takich samych zasadach.</p>
+							
+							<table class="table table-striped table-bordered table-sm text-center">
+								<thead >
+									<tr>
+										<th scope="col">A</th>
+										<th scope="col">B</th>
+										<th scope="col">Q</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+										
+									</tr>
+									<tr>
+										<td>0</td>
+										<td>1</td>
+										<td>1</td>
+										
+									</tr>
+									<tr>
+										<td>1</td>
+										<td>0</td>
+										<td>1</td>
+									</tr>
+									<tr>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+									</tr>
+								</tbody>
+							</table>
+
+							<h3>Bramka NOR</h3>
+
+							<figure class="img-fluid float-end ms-3 ms-md-4 ms-xl-5">
+								<img src="../img/bramka-nor.png" class="bramka" width="200px">
+							</figure>
+
+							<p>Działanie bramki NOR można określić jako całkowitą odwrotność działania bramki OR – można spojrzeć na nią, jak na działanie bramki OR na wszystkie sygnały wejściowe, jakie otrzymała, a następnie wprowadzenie jej sygnału wyjściowego na wejście bramki NOT – wynik będzie wskazywał na działanie bramki NOR</p>
+
+							<table class="table table-striped table-bordered table-sm text-center">
+								<thead>
+									<tr>
+										<th scope="col">A</th>
+										<th scope="col">B</th>
+										<th scope="col">Q</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>0</td>
+										<td>0</td>
+										<td>1</td>
+										
+									</tr>
+									<tr>
+										<td>0</td>
+										<td>1</td>
+										<td>0</td>
+										
+									</tr>
+									<tr>
+										<td>1</td>
+										<td>0</td>
+										<td>0</td>
+									</tr>
+									<tr>
+										<td>1</td>
+										<td>1</td>
+										<td>0</td>
+									</tr>
+								</tbody>
+							</table>
+							
+								<h3>Bramka XOR</h3>
+
+								<figure class="img-fluid float-end ms-3 ms-md-4 ms-xl-5">
+									<img src="../img/bramka-xor.png" class="bramka" width="200px">
+								</figure>
+
+								<p>Bramka XOR nie jest już jedną z podstawowych bramek logicznych. Bramka ta posiada na wejściu zawsze dokładnie 2 wejścia (funkcja dwóch zmiennych). Stan prawdy uzyskuje jeżeli tylko jeden ze stanów wejściowych jest równy logicznej jedynce. Stan fałszu otrzymuje wtedy, gdy argumenty na wejściach będą takie same.</p>
+
+								<table class="table table-striped table-bordered table-sm text-center">
+									<thead>
+										<tr>
+											<th scope="col">A</th>
+											<th scope="col">B</th>
+											<th scope="col">Q</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											
+										</tr>
+										<tr>
+											<td>0</td>
+											<td>1</td>
+											<td>1</td>
+											
+										</tr>
+										<tr>
+											<td>1</td>
+											<td>0</td>
+											<td>1</td>
+										</tr>
+										<tr>
+											<td>1</td>
+											<td>1</td>
+											<td>0</td>
+										</tr>
+									</tbody>
+								</table>
+
+							<h2 id="przykład">Przykład użycia bramek logicznych</h2>
+
+							<div class="row">
+
+								<div class="col-md-8 col-xxl-9">
+									<p>Aby nie być gołosłownym, teraz przedstawie przykład użycia bramek logicznych na układzie cyfrowym typu TTL (Transistor-transistor logic). A będzie to jeden z pierwszych, i jeden z najprostszych układów scalonych - SN 7400. Powstał on w roku 1964 oraz został opracowany przez firmę Texas Instruments. W czasach dominacji technologii TTL - czyli na przełomie lat 70 i 80 - był to jeden z podstawowych elementów tworzących cyfrowe układy elektroniczne. Układ ten zawiera cztery dwuwejściowe bramki NAND. Więcej informacji oraz historii całej serii układów 7400 można znaleźć <a class="tutaj" href="https://pl.wikipedia.org/wiki/Seria_7400" target="_blank">tutaj</a>.</p>
+								</div>
+
+								<div class="col-md-4 col-xxl-3">
+									<img src="../img/7400-1.jpg" width="100%" style="margin: 30px 0">
+
+									<figure>
+										<img src="../img/7400-2.jpg" width="100%">
+										<figcaption style="text-align: center">Schemat układu SN 7400</figcaption>
+									</figure>
+								</div>
+
+							</div>
+							
+							<h2 style="margin-top: 100px;" id="symulator">Symulator układu</h2>
 
 							<div id="sample">
 
@@ -501,23 +494,65 @@
 {"from":"xor1", "fromPort":"out", "to":"or2", "toPort":"in1"},
 {"from":"or2", "fromPort":"out", "to":"xor1", "toPort":"in2"},
 {"from":"xor1", "fromPort":"out", "to":"output1", "toPort":""}
- ]}
-									</textarea>
+ ]}</textarea>
 
 								</div>
 
-								<p>
-									Twórcą symulatora układu cyfrowego jest producent oprogramowania Northwoods Software. Wykonany został przy użyciu biblioteki GoJS ich autorstwa. Umożliwia użytkownikowi tworzenie obwodów za pomocą bramek i przewodów, które są aktualizowane za każdym razem, gdy łącze jest modyfikowane.
-								</p>
+								<p>Twórcą symulatora układu cyfrowego jest producent oprogramowania Northwoods Software. Wykonany został przy użyciu biblioteki GoJS ich autorstwa. Umożliwia użytkownikowi tworzenie obwodów za pomocą bramek i przewodów, które są aktualizowane za każdym razem, gdy łącze jest modyfikowane.</p>
 
 								<p>
 									Link do oficjalnej strony:
-									<a href="https://gojs.net/latest/extensions/PortShifting.html" style="word-break: break-all;">
-										https://gojs.net/latest/extensions/PortShifting.html
+									<a href="https://gojs.net/latest/samples/logicCircuit.html" style="word-break: break-all;">
+										https://gojs.net/latest/samples/logicCircuit.html
 									</a>
 								</p>
 
 							</div>
+
+							<h2 id="zrodla">Źródła</h2>
+
+							<ul>
+								<li>
+									<cite>
+										<a href="https://botland.com.pl/blog/bramki-logiczne-jak-to-dziala/">
+											Bramki logiczne - Jak to działa?
+										</a>
+									</cite>
+									<span class="cite-info">
+										, Anna Wieczorek, botland.com.pl [dostęp 21.02.2020]
+									</span>
+								</li>
+								<li>
+									<cite>
+										<a href="#">
+											Podstawowe elementy elektroniczne
+										</a>
+									</cite>
+									<span class="cite-info">
+										, dr hab. inż. Jakub Dawidziuk, elegron.pl [dostęp 22.02.2020]
+									</span>
+								</li>
+								<li>
+									<cite>
+										<a href="https://eduinf.waw.pl/inf/prg/010_uc/7400.php">
+											7400 – cztery dwuwejściowe bramki NAND
+										</a>
+									</cite>
+									<span class="cite-info">
+										, mgr Jerzy Wałaszek, eduinf.waw.pl, [dostęp 23.02.2020]
+									</span>
+								</li>
+								<li>
+									<cite>
+										<a href="https://pl.wikipedia.org/wiki/Bramka_logiczna">
+											Bramka logiczna
+										</a>
+									</cite>
+									<span class="cite-info">
+										, Wikipedia, wolna encyklopedia [dostęp 22.02.2020]
+									</span>
+								</li>
+							</ul>
 								
 							<a href="#" id="go-top" class="btn" role="button">
 								<i class="icon-up-open"></i>

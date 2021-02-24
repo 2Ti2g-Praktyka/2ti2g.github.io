@@ -16,20 +16,59 @@
 
 		<link rel="preconnect" href="https://fonts.gstatic.com">
 		<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700;900&display=swap" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700;900&display=swap" rel="stylesheet">
 
 		<style>
 			p.margin
 			{
 				font-family: "Segoe UI", "Helvetica Neue", "Noto Sans", "Liberation Sans", sans-serif;
-				margin-left: 30px;
+				margin: 15px 0 15px 30px;
 				text-align: left;
+				line-height: 1.5;
+			}
+
+			span.math
+			{
+				margin: 0 5px;
+				font-family: "Nimbus Roman No9 L", "Times New Roman", Times, serif;
+				font-style: italic;
+				font-size: 118%;
+				white-space: nowrap;
 			}
 
 			span.overline
 			{
-				text-decoration: overline;
+				border-top: 1.5px solid black;
+			}
+
+			span.overline-2
+			{
+				padding-top: 3px;
+				border-top: 1.5px solid black;
+			}
+
+			span.overline-3
+			{
+				padding-top: 6px;
+				border-top: 1.5px solid black;
+			}
+
+			span.double-overline
+			{
+				border-top: 4px double;
+			}
+
+			span.double-overline-2
+			{
+				padding-top: 3px;
+				border-top: 4px double;
+			}
+
+			span.double-overline-3
+			{
+				padding-top: 6px;
+				border-top: 4px double;
 			}
 
 			.sidebar
@@ -42,6 +81,16 @@
 				.sidebar
 				{
 					font-size: 24px;
+				}
+			}
+
+			@media screen and (min-width: 992px) and (max-height: 399px)
+			{
+				.list-group
+				{
+					top: 80px;
+					transform: none;
+					margin-top: 0;
 				}
 			}
 		</style>
@@ -71,7 +120,7 @@
 				});
 
 				$('#link5').click(() => {
-					$.scrollTo($('#minimalizacja').offset().top -90, 350);
+					$.scrollTo($('#funkcje').offset().top -90, 350);
 				});
 
 				$('#link6').click(() => {
@@ -151,7 +200,7 @@
 								<a id="link2" href="#" class="list-group-item list-group-item-action">Oznaczenia</a>
 								<a id="link3" href="#" class="list-group-item list-group-item-action">Operacje</a>
 								<a id="link4" href="#" class="list-group-item list-group-item-action">Twierdzenia</a>
-								<a id="link5" href="#" class="list-group-item list-group-item-action">Minimalizacja</a>
+								<a id="link5" href="#" class="list-group-item list-group-item-action">Funkcje</a>
 								<a id="link6" href="#" class="list-group-item list-group-item-action">Źródła</a>
 							</ul>
 
@@ -160,16 +209,14 @@
 						<div class="col-lg-8 col-xxl-9 p-5 transition-width content">
 
 							<header>
-
 								<h1 class="text-center">Algebra Boole'a</h1>
-
 							</header>
 
 							<h2 id="wstep">Wstęp</h2>
 								
-							<figure class="img-fluid float-end ms-3 mt-2">
-								<img src="../img/george-boole.jpg" alt="George Boole" width="150px">
-								<figcaption>George Boole</figcaption>
+							<figure class="img-fluid float-lg-end ">
+								<img class="mx-auto d-block ms-lg-3 d-lg-inline-block" src="../img/george-boole.jpg" alt="George Boole" width="150px">
+								<figcaption style="text-align: center;">George Boole</figcaption>
 							</figure>
 
 							<p>Ogólnie algebrą nazwiemy zbiór określonych elementów (np. liczb) oraz działań, które można na nich wykonywać. Przykładowo, każdy z nas posługuje się algebrą liczb rzeczywistych. Zawiera ona nieskończenie wiele liczb. Można na nich wykonywać operacje takie jak np. dodawanie, odejmowanie, mnożenie, czy dzielenie.</p>
@@ -207,8 +254,8 @@
 									</tr>
 									<tr>
 										<td>+</td>
-										<td>·</td>
-										<td>ā</td>
+										<td><strong>·</strong></td>
+										<td><span class="overline">a</span></td>
 									</tr>
 									<tr>
 										<td>∨</td>
@@ -307,15 +354,15 @@
 							<p>Negacja to jednoargumentowe działanie, które każdemu zdaniu <strong>a</strong> przyporządkowuje zdanie <strong>ā (nie a)</strong>. W algebrze Boole'a jest operacją, która przyjmuje tylko jeden argument. W wyniku jej działania otrzymujemy wartość przeciwną. Wynikiem zaprzeczenia "prawdy" będzie "fałsz" i odwrotnie, negacją "fałszu" będzie "prawda".</p>
 
 							<p class="margin">
-								¬0 = nie 0 = 1 <br/>
-								¬1 = nie 1 = 0
+								<span class="overline">0</span> = nie 0 = 1 <br/>
+								<span class="overline">1</span> = nie 1 = 0
 							</p>
 
 							<table class="table table-striped table-bordered table-xs text-center">
 								<thead>
 									<tr>
 										<th scope="col">a</th>
-										<th scope="col">¬a</th>
+										<th scope="col"><span class="overline">a</span></th>
 									</tr>
 								</thead>
 								<tbody>
@@ -330,7 +377,7 @@
 								</tbody>
 							</table>
 
-							<h2 id="twierdzenia">Podstawowe aksjomaty i twierdzenia</h2>
+							<h2 id="twierdzenia">Prawa i twierdzenia (aksjomaty)</h2>
 
 							<p>Jak w każdej algebrze, i w tej określono pewne zasady. Są nimi łączność, rozdzielność, przemienność oraz prawa De Morgana. Pierwsze trzy dotyczą wyłącznie operatorów AND i OR. Podobnie, jak zero determinuje wynik mnożenia, tak w algebrze Boole'a jedynka przesądza o wyniku sumowania. Dodanie 1 do jakiejkolwiek liczby zawsze da w efekcie 1. To jest nowość, która dla wielu wydaje się być nieintuicyjna. Podstawowe prawa algebry Boole’a:</p>
 
@@ -345,18 +392,24 @@
 
 							<p class="margin">zmiana kolejności czynników nie zmienia wyniku</p>
 
-							<h3>Prawa identyczności</h3>
+							<h3>Prawa identyczności (tożsamości)</h3>
 
 							<p class="margin">
 								a ∨ 0 = a <br/>
-								a ∧ 1 = a <br/> <br/>
+								a ∧ 1 = a
+							</p>
+
+							<p class="margin">
+								zero (0) nie wpływa na wynik dodawania <br/>
+								jeden (1) nie wpływa na wynik mnożenia
+							</p>
+
+							<p class="margin">
 								a ∨ 1 = 1 <br/>
 								a ∧ 0 = 0
 							</p>
 
 							<p class="margin">
-								zero (0) nie wpływa na wynik dodawania <br/>
-								jeden (1) nie wpływa na wynik mnożenia <br/> <br/>
 								dodanie jedynki (1) zawsze da jeden (1) <br/>
 								mnożenie przed zero (0) zawsze da zero (0)
 							</p>
@@ -376,8 +429,8 @@
 							<h3>Prawa dopełnienia (uzupełnienia)</h3>
 
 							<p class="margin">
-								a ∨ ¬a = 1 <br/>
-								a ∧ ¬a = 0
+								a ∨ <span class="overline">a</span> = 1 <br/>
+								a ∧ <span class="overline">a</span> = 0
 							</p>
 
 							<p class="margin">
@@ -388,20 +441,20 @@
 							<h3>Prawo inwolucji (podwójnej negacji)</h3>
 
 							<p class="margin">
-								a = ¬(¬a)
+								a = <span class="double-overline">a</span>
 							</p>
 
-							<p class="margin">
-								a = 0 lub 1 <br/>
-								¬a = 1 lub 0 <br/>
-								¬(¬a) = 0 lub 1 = a
+							<p class="margin" style="line-height: 1.8;">
+								<span class="overline">a</span> = 0 lub 1 <br/>
+								<span class="overline">a</span> = 1 lub 0 <br/>
+								<span class="double-overline">a</span> = 0 lub 1 = a
 							</p>
 
 							<h3>Prawa łączności</h3>
 
 							<p class="margin">
-								a ∧ (b ∧ c) = (a ∧ b) ∧ c <br/>
-								a ∨ (b ∨ c) = (a ∨ b) ∨ c
+								a ∧ (b ∧ c) = (a ∧ b) ∧ c = a ∧ b ∧ c<br/>
+								a ∨ (b ∨ c) = (a ∨ b) ∨ c = a ∨ b ∨ c
 							</p>
 
 							<p class="margin">
@@ -417,14 +470,14 @@
 
 							<p class="margin">
 								rozdzielność mnożenia względem dodawania (powiązanie z wyłączaniem wspólnego czynnika przed nawias) <br/>
-								rozdzielność dodawania względem mnożenia (taka reguła nie obowiązuje w algebrze elementarnej)
+								rozdzielność dodawania względem mnożenia (taka reguła nie obowiązuje w zwykłej algebrze)
 							</p>
 
 							<h3>Prawa pochłaniania (absorpcji)</h3>
 
 							<p class="margin">
-								(a ∧ b) ∨ a = a <br/>
-								(a ∨ b) ∧ a = a
+								a ∧ (a ∨ b) = a <br/>
+								a ∨ (a ∧ b) = a
 							</p>
 
 							<h3>Prawa De Morgana</h3>
@@ -441,12 +494,239 @@
 								negacja alternatywy (dodawania) jest koniunkcją (mnożeniem) negacji
 							</p>
 
-							<h2 id="minimalizacja">Minimalizacja funkcji logicznych</h2>
+							<p>Przykłady zastosowania praw De Morgana</p>
+
+							<p class="margin">
+								c ∧ d = <span class="double-overline">c ∧ d</span> = <span class="overline-2"><span class="overline">c</span> V <span class="overline">d</span></span>
+							</p>
+
+							<p class="margin">
+								podwójnie negujemy wyrażenie, stosujemy prawo De Morgana
+							</p>
+
+							<p class="margin" style="margin-top: 40px">
+								<span class="overline">p</span> ∧ q = <span class="double-overline-2"><span class="overline">p</span> ∧ q</span> = <span class="overline-3"><span class="double-overline">p</span> V <span class="overline-2">q</span></span> = <span class="overline-2">p V <span class="overline">q</span></span>
+							</p>
+
+							<p class="margin">
+								podwójnie negujemy wyrażenie, stosujemy prawo De Morgana, usuwamy podwójną negację p
+							</p>
+
+							<h2 id="funkcje">Funkcje logiczne (boolowskie)</h2>
+
+							<h3>Definicja</h3>
+
+							<p>Funkcje logiczne definiują zależność sygnału wyjściowego od wartości zmiennych. Każda funkcja jest matematycznym modelem układu kombinacyjnego. Układy tego typu są używane do budowy między innymi multiplekserów, mikroprocesorów, do sterowania na przykład wyświetlaczami LED i w wielu innych urządzeniach elektronicznych.</p>
+
+							<p class="margin">
+								Funkcja boolowska to dowolne odwzorowanie <span class="math">f: X → Y</span>, gdzie <span class="math">B = {0,1}</span>, <span class="math">X</span> jest podzbiorem <span class="math">B<sup>n</sup></span>, a <span class="math">Y</span> jest podzbiorem <span class="math">B<sup>m</sup></span>. <br/><br/>
+
+								Jeżeli funkcja jest określona dla całego zbioru <span class="math">B<sup>n</sup></span> nazywamy ją funkcją zupełną. W przeciwnym wypadku jest to funkcja niezupełna, nie w pełni określona. <br/><br/>
+
+								Liczba wszystkich n-argumentowych funkcji boolowskich zupełnych jest równa <span class="math">2<sup>2<sup>n</sup></sup></span>
+							</p>
+
+							<p>W przykładach zakładamy, że funkcja <span class="math">f</span> ma trzy argumenty: <span class="math">a, b</span> i <span class="math">c</span>.</p>
+
+							<h3>Sposoby opisu</h3>
+
+							<h4>Opis słowny</h4>
+
+							<p>Ten sposób stosowany jest w przypadku prostych funkcji, lub gdy charakteryzowane są pewne specyficzne własności funkcji. Spotyka się go w zasadzie wyłącznie we wstępnej fazie projektowania układu. Do dalszej analizy tworzy się na podstawie opisu słownego tabelę lub/oraz postacie kanoniczne.</p>
+
+							<p class="margin">
+								„funkcja ma wartość jeden, gdy a jest różne od b, lub c jest równe b” <br/>
+								„dla indeksów nieparzystych funkcja jest równa zero”
+							</p>
+
+							<h4>Tablica prawdy</h4>
+
+							<p>Postać najczęściej spotykana, zwłaszcza dla funkcji niewielu zmiennych. W tablicy wypisuje się wszystkie kombinacje zmiennych wejściowych oraz odpowiadające im wartości funkcji. Oprócz stanów 0 i 1 można uwzględnić również stany nieokreślone, oznaczane zwykle - (minus) lub x.</p>
+
+							<table class="table table-striped table-bordered table-sm text-center">
+								<thead>
+									<tr>
+										<th scope="col">#</th>
+										<th scope="col">a</th>
+										<th scope="col">b</th>
+										<th scope="col">c</th>
+										<th scope="col">f</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th scope="row">0</td>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+										<td>1</td>
+									</tr>
+									<tr>
+										<th scope="row">1</td>
+										<td>0</td>
+										<td>0</td>
+										<td>1</td>
+										<td>1</td>
+									</tr>
+									<tr>
+										<th scope="row">2</td>
+										<td>0</td>
+										<td>1</td>
+										<td>0</td>
+										<td>1</td>
+									</tr>
+									<tr>
+										<th scope="row">3</td>
+										<td>0</td>
+										<td>1</td>
+										<td>1</td>
+										<td>–</td>
+									</tr>
+									<tr>
+										<th scope="row">4</td>
+										<td>1</td>
+										<td>0</td>
+										<td>0</td>
+										<td>1</td>
+									</tr>
+									<tr>
+										<th scope="row">5</td>
+										<td>1</td>
+										<td>0</td>
+										<td>1</td>
+										<td>0</td>
+									</tr>
+									<tr>
+										<th scope="row">6</td>
+										<td>1</td>
+										<td>1</td>
+										<td>0</td>
+										<td>1</td>
+									</tr>
+									<tr>
+										<th scope="row">7</td>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+										<td>0</td>
+									</tr>
+								</tbody>
+							</table>
+
+							<h4>Kanoniczna postać sumy (sumacyjna)</h4>
+
+							<p>W polskiej literaturze kanoniczna postać sumy oznaczana jest skrótem <strong>KPS</strong>, a w angielskiej <strong>SOP</strong>.</p>
+
+							<p>W KPS funkcja stanowi sumę iloczynów (implikantów) pomnożonych przez wartości funkcji.</p>
+
+							<table class="table table-striped table-bordered table-xs text-center">
+								<thead>
+									<tr>
+										<th scope="col">a</th>
+										<th scope="col">b</th>
+										<th scope="col"><span class="math">f</span>(a, b)</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+									</tr>
+									<tr>
+										<td>0</td>
+										<td>1</td>
+										<td>0</td>
+									</tr>
+									<tr>
+										<td>1</td>
+										<td>0</td>
+										<td>0</td>
+									</tr>
+									<tr>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+									</tr>
+								</tbody>
+							</table>
+
+							<p class="margin"><span class="math">f</span> = ...(... ∧ ... ∧ ...) ∨ (... ∧ ... ∧ ...) ∨ (... ∧ ... ∧ ...)...</p>
+
+							<p class="margin">
+								Wyrażenie w nawiasie (iloczyn) odpowiada jednej jedynce. W tym konkretnym przypadku: <br/>
+								<span class="math">f</span> = (a ∧ b) <br/><br/>
+
+								Zapis skrócony dziesiętny: <br/>
+								<span class="math">f</span>(a, b) = <span class="math">Σ</span>(3)
+							</p>
+
+							<h4>Kanoniczna postać iloczynu (iloczynowa)</h4>
+
+							<p>W polskiej literaturze kanoniczna postać iloczynu oznaczana jest skrótem <strong>KPI</strong>, a w angielskiej <strong>POS</strong>.</p>
+
+							<p>W KPI funkcja stanowi iloczyn sum (implicentów) z dodanymi wartościami funkcji.</p>
+
+							<table class="table table-striped table-bordered table-xs text-center">
+								<thead>
+									<tr>
+										<th scope="col">a</th>
+										<th scope="col">b</th>
+										<th scope="col"><span class="math">f</span>(a, b)</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
+									</tr>
+									<tr>
+										<td>0</td>
+										<td>1</td>
+										<td>0</td>
+									</tr>
+									<tr>
+										<td>1</td>
+										<td>0</td>
+										<td>0</td>
+									</tr>
+									<tr>
+										<td>1</td>
+										<td>1</td>
+										<td>1</td>
+									</tr>
+								</tbody>
+							</table>
+
+							<p class="margin"><span class="math">f</span> = ...(... ∨ ... ∨ ...) ∧ (... ∨ ... ∨ ...) ∧ (... ∨ ... ∨ ...)...</p>
+
+							<p class="margin">
+								Wyrażenie w nawiasie (suma) odpowiada jednemu zeru. W tym konkretnym przypadku: <br/>
+								<span class="math">f</span> = (a ∨ b) ∧ (a ∨ <span class="overline">b</span>) ∧ (<span class="overline">a</span> ∨ b). <br/><br/>
+
+								Zapis skrócony dziesiętny: <br/>
+								<span class="math">f</span>(a, b) = <span class="math">Π</span>(0, 1, 2)
+							</p>
+
+							<h3>Minimalizacja funkcji logicznych</h3>
+
+							<p>Aby zaprojektować układ kombinacyjny pierwsze trzeba uprościć funkcje opisującą jego działanie. Stosuje się wówczas metody minimalizacji funkcji logicznych. Polegają one na upraszczaniu wyrażeń logicznych, tak aby zawierały jak najmniejszą liczbę tylko niezbędnych argumentów oraz operacji logicznych. Zadanie to ma podstawowe znaczenie dla techniki cyfrowej, gdzie funkcje urządzenia realizowane są za pomocą tzw. bramek logicznych (układów wykonujących podstawowe operacje logiczne). Jest chyba jasne, iż prostsze wyrażenie oznacza mniejszą złożoność układu elektronicznego, a co za tym idzie mniejszy koszt wykonania, większą niezawodność (mniej elementów, które mogą przestać działać) oraz zwykle szybsze działanie (mniej uzależnień powoduje szybszą stabilizację sieci logicznej).</p>
+
+							<p>Sposoby minimalizacji:</p>
+
+							<ul>
+								<li>
+									stosowanie praw algebry Boole’a (jest to jednak sposób bardzo pracochłonny i mało efektywny),
+								</li>
+								<li>
+									metoda graficzna – tablic Karnaugha (stosuje się ją do minimalizacji funkcji maksymalnie 6 zmiennych).
+								</li>
+							</ul>
 
 							<h2 id="zrodla">Źródła</h2>
 
 							<ul>
-
 								<li>
 									<cite>
 										<a href="https://forbot.pl/blog/technika-cyfrowa-algebra-boolea-w-praktyce-id15137">
@@ -457,7 +737,6 @@
 										, Michał Kurzela, Damian Szymański, forbot.pl, 2021 [dostęp 20.02.2021]
 									</span>
 								</li>
-
 								<li>
 									<cite>
 										<a href="https://www-users.mat.umk.pl//~zssz/nsi2011/ab.pdf">
@@ -468,7 +747,6 @@
 										, Zbigniew S. Szewczak, materiały Uniwersytetu Mikołaja Kopernika w Toruniu, 2011 [dostęp 18.02.2021]
 									</span>
 								</li>
-
 								<li>
 									<cite>
 										<a href="https://www.math.uni.lodz.pl/~marta/2015_2016_l/1_Algebra%20Boole'a_1.pdf">
@@ -479,7 +757,6 @@
 										, Marta Lipnicka, materiały Wydziału Matematyki i Informatyki Uniwersytetu Łódzkiego, 2015 [dostęp 20.02.2021]
 									</span>
 								</li>
-								
 								<li>
 									<cite>
 										<a href="http://math.uni.lodz.pl/~sibelska/wstepdoinformatyki/algebraboolea.pdf">
@@ -490,7 +767,6 @@
 										, Agnieszka Sibelska, materiały Wydziału Matematyki i Informatyki Uniwersytetu Łódzkiego [dostęp 22.02.2021]
 									</span>
 								</li>
-								
 								<li>
 									<cite>
 										<a href="https://zeszyt.jedlikowski.com/2019-10-21/utk-2/algebra-boolowska/">
@@ -501,18 +777,6 @@
 										, Przemysław Jedlikowski, zeszyt.jedlikowski.com, 2019 [dostęp 22.02.2021]
 									</span>
 								</li>
-
-								<li>
-									<cite>
-										<a href="https://youtu.be/e1fGVVXpHqs">
-											Algebra Boole'a II - Prawa de Morgana
-										</a>
-									</cite>
-									<span class="cite-info">
-										, Mat hub, youtube.com, 2016 [dostęp 22.02.2021]
-									</span>
-								</li>
-
 								<li>
 									<cite>
 										<a href="https://eduinf.waw.pl/inf/prg/009_kurs_avr/0009.php">
@@ -523,7 +787,26 @@
 										, mgr inż. Janusz Wałaszek, Serwis Edukacyjny w I-LO w Tarnowie, 2021 [dostęp 22.02.2021]
 									</span>
 								</li>
-
+								<li>
+									<cite>
+										<a href="http://www.zstio-elektronika.pl/pliki_t_elektronik/TE_O2-02-Lekcja_08-Minimalizacja_funkcji_logicznych.pdf">
+											Minimalizacja funkcji logicznych
+										</a>
+									</cite>
+									<span class="cite-info">
+										, materiały Zespołu Szkół Technicznych i Ogólnokształcących w Jarosławiu, 2012 [dostęp 24.02.2021]
+									</span>
+								</li>
+								<li>
+									<cite>
+										<a href="http://old.piko.avx.pl/index.php?k=tc&p=minimalizacja">
+											Minimalizacja funkcji logicznych i projektowanie układów kombinacyjnych
+										</a>
+									</cite>
+									<span class="cite-info">
+										, mgr inż. Piotr Kotarski [dostęp 24.02.2021]
+									</span>
+								</li>
 								<li>
 									<cite>
 										<a href="https://pl.wikipedia.org/wiki/Algebra_Boole%E2%80%99a">
@@ -534,7 +817,6 @@
 										, Wikipedia, wolna encyklopedia [dostęp 20.02.2021]
 									</span>
 								</li>
-
 							</ul>
 							
 							<a href="#" id="go-top" class="btn" role="button">
