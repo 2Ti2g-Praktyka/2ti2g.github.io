@@ -155,7 +155,6 @@ body
 {
     width: 100%;
     height: auto;
-    border-radius: 3px;
     transition: all 0.5s;
 }
 
@@ -211,12 +210,12 @@ body
 footer
 {
     padding: 15px;
-    font-size: 45px;
     text-align: right;
 }
 
 footer a
 {
+    font-size: 45px;
     color: black !important;
     opacity: 0.5;
     transition: all 0.2s ease-in-out;
