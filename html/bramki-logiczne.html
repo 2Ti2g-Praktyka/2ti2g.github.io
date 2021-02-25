@@ -97,57 +97,7 @@
 
 	<body onload="init()">
 
-		<nav class="navbar navbar-expand-lg sticky-top">
-
-			<div class="container-fluid">
-
-				<a class="navbar-brand ms-1" href="../index.html">
-					<img src="../img/favicon.png" width="40" height="40" alt="" class="d-inline-block align-bottom">
-				</a>
-
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-					<span role="button">
-						<i class="icon-menu"></i>
-					</span>
-				</button>
-
-				<div class="collapse navbar-collapse" id="navbarNav">
-
-					<ul class="navbar-nav mx-auto">
-
-						<li class="nav-item">
-							<a class="nav-link" href="../index.html">
-								Start
-							</a>
-						</li>
-
-						<li class="nav-item dropdown">
-
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-								Materiały
-							</a>
-							
-							<ul class="dropdown-menu text-center mt-lg-1" aria-labelledby="navbarDropdown">
-								<li><a class="dropdown-item" href="algebra-boolea.html">Algebra Boole'a</a></li>
-								<li><a class="dropdown-item" href="bramki-logiczne.html">Bramki Logiczne</a></li>
-								<li><a class="dropdown-item" href="uklady-cyfrowe.html">Układy Cyfrowe</a></li>
-							</ul>
-						
-						</li>
-
-						<li class="nav-item">
-							<a class="nav-link" href="o-projekcie.html">
-								O projekcie
-							</a>
-						</li>
-
-					</ul>
-
-				</div>
-
-			</div>
-
-		</nav>
+		<script src="../js/nav-sub.js"></script>
 
 		<main>
 
@@ -197,7 +147,7 @@
 							<h3>Bramka NOT</h3>
 
 							<div class="text-center">
-								<img class="img-fluid float-sm-end ms-sm-3 ms-md-4 ms-xl-5" src="../img/bramka-not.png" width="200px">
+								<img class="img-fluid float-sm-end ms-sm-3 ms-md-4 ms-xl-5" src="../img/bramka-not.png" alt="Bramka NOT" width="200px">
 							</div>
 							
 							<p>Bramka NOT jest najprostszą bramką. Jej działanie polega na wykonywaniu logicznej negacji - posiada tylko jedno wejście, a na wyjściu występuje zawsze argument przeciwny.</p>
@@ -224,7 +174,7 @@
 							<h3>Bramka AND</h3>
 
 							<div class="text-center">
-								<img class="img-fluid float-sm-end ms-sm-3 ms-md-4 ms-xl-5" src="../img/bramka-and.png" width="200px">
+								<img class="img-fluid float-sm-end ms-sm-3 ms-md-4 ms-xl-5" src="../img/bramka-and.png" alt="Bramka AND" width="200px">
 							</div>
 
 							<p>Przy działaniu bramki logicznej AND wynik 1 można otrzymać tylko w przypadku, kiedy oba wejścia będą równały się jedynce. Tego typu bramki mogą występować w wersjach trzywejściowych, czterowejściowych oraz o znacznie większej liczbie wejść. Należy pamiętać, że niezależnie od tego, ile wejść będzie znajdowało się w stanie wysokim – stan wysoki na wyjściu będzie możliwy tylko w przypadku, jeżeli na każdym wejściu będzie znajdowała się logiczna jedynka.</p>
@@ -266,7 +216,7 @@
 							<h3>Bramka NAND (-AND)</h3>	
 
 							<div class="text-center">
-								<img class="img-fluid float-sm-end ms-sm-3 ms-md-4 ms-xl-5" src="../img/bramka-nand.png" width="200px">
+								<img class="img-fluid float-sm-end ms-sm-3 ms-md-4 ms-xl-5" src="../img/bramka-nand.png" alt="Bramka NAND" width="200px">
 							</div>
 
 							<p>Bramka NAND realizuje funkcję dokładnie odwrotną do AND. Tak też można interpretować działanie bramki NAND – jest ono dokładnie takie, jakby na wejściu bramki AND zostały umieszczone odpowiednie wartości, na jej wyjściu pojawił się wynik, a następnie został on przepuszczony przez jeszcze bramkę NOT.</p>
@@ -308,7 +258,7 @@
 							<h3>Bramka OR</h3>
 
 							<div class="text-center">
-								<img class="img-fluid float-sm-end ms-sm-3 ms-md-4 ms-xl-5" src="../img/bramka-or.png" width="200px">
+								<img class="img-fluid float-sm-end ms-sm-3 ms-md-4 ms-xl-5" src="../img/bramka-or.png" alt="Bramka OR" width="200px">
 							</div>
 							
 							<p>Na wyjściu bramki OR wynik o wartości 1 pojawi się zawsze w sytuacji, jeżeli chociaż jedno z wejść przyjmuje stan wysoki. Oznacza to również, że jeżeli pojawi się więcej niż jedno wejście o stanie wysokim – na wyjściu również pojawi się jedynka. Tak więc zero pojawi się na wyjściu wyłącznie w sytuacji, kiedy na wszystkich wejściach bramki również ustawione będzie zero. Oczywiście wyjście jest zawsze tylko jedno. Typowy układ zawiera dwa wejścia, ale może posiadać ich nieskończenie wiele i będzie działał na takich samych zasadach.</p>
@@ -350,7 +300,7 @@
 							<h3>Bramka NOR</h3>
 
 							<div class="text-center">
-								<img class="img-fluid float-sm-end ms-sm-3 ms-md-4 ms-xl-5" src="../img/bramka-nor.png" width="200px">
+								<img class="img-fluid float-sm-end ms-sm-3 ms-md-4 ms-xl-5" src="../img/bramka-nor.png" alt="Bramka NOR" width="200px">
 							</div>
 
 							<p>Działanie bramki NOR można określić jako całkowitą odwrotność działania bramki OR – można spojrzeć na nią, jak na działanie bramki OR na wszystkie sygnały wejściowe, jakie otrzymała, a następnie wprowadzenie jej sygnału wyjściowego na wejście bramki NOT – wynik będzie wskazywał na działanie bramki NOR</p>
@@ -392,7 +342,7 @@
 							<h3>Bramka XOR</h3>
 
 							<div class="text-center">
-								<img class="img-fluid float-sm-end ms-sm-3 ms-md-4 ms-xl-5" src="../img/bramka-xor.png" width="200px">
+								<img class="img-fluid float-sm-end ms-sm-3 ms-md-4 ms-xl-5" src="../img/bramka-xor.png" alt="Bramka XOR" width="200px">
 							</div>
 
 							<p>Bramka XOR nie jest już jedną z podstawowych bramek logicznych. Bramka ta posiada na wejściu zawsze dokładnie 2 wejścia (funkcja dwóch zmiennych). Stan prawdy uzyskuje jeżeli tylko jeden ze stanów wejściowych jest równy logicznej jedynce. Stan fałszu otrzymuje wtedy, gdy argumenty na wejściach będą takie same.</p>
@@ -440,10 +390,10 @@
 								</div>
 
 								<div class="col-md-4 col-xxl-3">
-									<img class="img-fluid rounded my-4" src="../img/7400-1.jpg" width="100%">
+									<img class="img-fluid rounded my-4" src="../img/7400-1.jpg" alt="Układ SN 7400" width="100%">
 
 									<figure class="figure">
-										<img class="figure-img img-fluid rounded" src="../img/7400-2.jpg" width="100%">
+										<img class="figure-img img-fluid rounded" src="../img/7400-2.jpg" alt="" width="100%">
 										<figcaption class="figure-caption text-center">Schemat układu SN 7400</figcaption>
 									</figure>
 								</div>
@@ -472,27 +422,27 @@
   "linkFromPortIdProperty": "fromPort",
   "linkToPortIdProperty": "toPort",
   "nodeDataArray": [ 
-{"category":"input", "key":"input1", "loc":"-720 -150"},
+{"category":"input", "key":"input1", "loc":"-720 -160"},
 {"category":"output", "key":"output1", "loc":"-570 -190"},
 {"category":"input", "key":-1, "loc":"-720 -220"},
-{"category":"output", "key":-2, "loc":"-570 -70"},
-{"category":"input", "key":-5, "loc":"-720 -100"},
+{"category":"output", "key":-2, "loc":"-570 -80"},
+{"category":"input", "key":-5, "loc":"-720 -110"},
 {"category":"and", "key":-3, "loc":"-650 -190"},
-{"category":"or", "key":-4, "loc":"-650 -70"},
-{"category":"input", "key":-8, "loc":"-720 -40"},
+{"category":"or", "key":-4, "loc":"-650 -80"},
+{"category":"input", "key":-8, "loc":"-720 -50"},
 {"category":"not", "key":-6, "loc":"-650 -270"},
 {"category":"input", "key":-11, "loc":"-720 -270"},
 {"category":"output", "key":-12, "loc":"-570 -270"},
 {"category":"nand", "key":-7, "loc":"-390 -240"},
-{"category":"nor", "key":-14, "loc":"-650 40"},
+{"category":"nor", "key":-14, "loc":"-650 30"},
 {"category":"xnor", "key":-9, "loc":"-650 140"},
 {"category":"input", "key":-15, "loc":"-460 -210"},
-{"category":"input", "key":-16, "loc":"-720 20"},
+{"category":"input", "key":-16, "loc":"-720 0"},
 {"category":"input", "key":-17, "loc":"-460 -270"},
-{"category":"input", "key":-18, "loc":"-720 70"},
-{"category":"input", "key":-19, "loc":"-720 120"},
+{"category":"input", "key":-18, "loc":"-720 60"},
+{"category":"input", "key":-19, "loc":"-720 110"},
 {"category":"input", "key":-20, "loc":"-720 170"},
-{"category":"output", "key":-21, "loc":"-570 40"},
+{"category":"output", "key":-21, "loc":"-570 30"},
 {"category":"output", "key":-22, "loc":"-570 140"},
 {"category":"output", "key":-23, "loc":"-320 -240"}
  ],
