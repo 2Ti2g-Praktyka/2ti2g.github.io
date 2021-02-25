@@ -17,7 +17,6 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com">
 		<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&display=swap" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700;900&display=swap" rel="stylesheet">
 
 		<style>
 			a.tutaj
@@ -469,25 +468,52 @@
 									</div>
 
 									<textarea id="mySavedModel" style="margin-top: 10px; width:100%; height:200px;">
-{ "class": "go.GraphLinksModel",
+{ "class": "GraphLinksModel",
   "linkFromPortIdProperty": "fromPort",
   "linkToPortIdProperty": "toPort",
-  "nodeDataArray": [
-{"category":"input", "key":"input1", "loc":"-150 -80" },
-{"category":"or", "key":"or1", "loc":"-70 0" },
-{"category":"not", "key":"not1", "loc":"10 0" },
-{"category":"xor", "key":"xor1", "loc":"100 0" },
-{"category":"or", "key":"or2", "loc":"200 0" },
-{"category":"output", "key":"output1", "loc":"200 -100" }
+  "nodeDataArray": [ 
+{"category":"input", "key":"input1", "loc":"-720 -150"},
+{"category":"output", "key":"output1", "loc":"-570 -190"},
+{"category":"input", "key":-1, "loc":"-720 -220"},
+{"category":"output", "key":-2, "loc":"-570 -70"},
+{"category":"input", "key":-5, "loc":"-720 -100"},
+{"category":"and", "key":-3, "loc":"-650 -190"},
+{"category":"or", "key":-4, "loc":"-650 -70"},
+{"category":"input", "key":-8, "loc":"-720 -40"},
+{"category":"not", "key":-6, "loc":"-650 -270"},
+{"category":"input", "key":-11, "loc":"-720 -270"},
+{"category":"output", "key":-12, "loc":"-570 -270"},
+{"category":"nand", "key":-7, "loc":"-390 -240"},
+{"category":"nor", "key":-14, "loc":"-650 40"},
+{"category":"xnor", "key":-9, "loc":"-650 140"},
+{"category":"input", "key":-15, "loc":"-460 -210"},
+{"category":"input", "key":-16, "loc":"-720 20"},
+{"category":"input", "key":-17, "loc":"-460 -270"},
+{"category":"input", "key":-18, "loc":"-720 70"},
+{"category":"input", "key":-19, "loc":"-720 120"},
+{"category":"input", "key":-20, "loc":"-720 170"},
+{"category":"output", "key":-21, "loc":"-570 40"},
+{"category":"output", "key":-22, "loc":"-570 140"},
+{"category":"output", "key":-23, "loc":"-320 -240"}
  ],
-  "linkDataArray": [
-{"from":"input1", "fromPort":"out", "to":"or1", "toPort":"in1"},
-{"from":"or1", "fromPort":"out", "to":"not1", "toPort":"in"},
-{"from":"not1", "fromPort":"out", "to":"or1", "toPort":"in2"},
-{"from":"not1", "fromPort":"out", "to":"xor1", "toPort":"in1"},
-{"from":"xor1", "fromPort":"out", "to":"or2", "toPort":"in1"},
-{"from":"or2", "fromPort":"out", "to":"xor1", "toPort":"in2"},
-{"from":"xor1", "fromPort":"out", "to":"output1", "toPort":""}
+  "linkDataArray": [ 
+{"from":-1, "to":-3, "fromPort":"", "toPort":"in1"},
+{"from":"input1", "to":-3, "fromPort":"", "toPort":"in2"},
+{"from":-3, "to":"output1", "fromPort":"out", "toPort":""},
+{"from":-5, "to":-4, "fromPort":"", "toPort":"in1"},
+{"from":-8, "to":-4, "fromPort":"", "toPort":"in2"},
+{"from":-4, "to":-2, "fromPort":"out", "toPort":""},
+{"from":-11, "to":-6, "fromPort":"", "toPort":"in"},
+{"from":-6, "to":-12, "fromPort":"out", "toPort":""},
+{"from":-16, "to":-14, "fromPort":"", "toPort":"in1"},
+{"from":-18, "to":-14, "fromPort":"", "toPort":"in2"},
+{"from":-19, "to":-9, "fromPort":"", "toPort":"in1"},
+{"from":-20, "to":-9, "fromPort":"", "toPort":"in2"},
+{"from":-14, "to":-21, "fromPort":"out", "toPort":""},
+{"from":-9, "to":-22, "fromPort":"out", "toPort":""},
+{"from":-7, "to":-23, "fromPort":"out", "toPort":""},
+{"from":-17, "to":-7, "fromPort":"", "toPort":"in1"},
+{"from":-15, "to":-7, "fromPort":"", "toPort":"in2"}
  ]}</textarea>
 
 								</div>
