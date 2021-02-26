@@ -28,7 +28,7 @@ document.write(`
                                 Materiały
                             </a>
 
-                            <ul class="dropdown-menu text-center mt-lg-1" aria-labelledby="navbarDropdown">
+                            <ul class="dropdown-menu dropdown-menu-xl-end mt-xl-1 text-center" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="html/algebra-boolea.html">Algebra Boole'a</a></li>
                                 <li><a class="dropdown-item" href="html/bramki-logiczne.html">Bramki Logiczne</a></li>
                                 <li><a class="dropdown-item" href="html/uklady-cyfrowe.html">Układy Cyfrowe</a></li>
