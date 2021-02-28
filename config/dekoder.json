@@ -1,0 +1,33 @@
+{ "class": "GraphLinksModel",
+  "linkFromPortIdProperty": "fromPort",
+  "linkToPortIdProperty": "toPort",
+  "nodeDataArray": [ 
+{"category":"output", "key":-2, "loc":"190 -350"},
+{"category":"output", "key":-3, "loc":"190 -290"},
+{"category":"output", "key":-4, "loc":"190 -230"},
+{"category":"output", "key":-5, "loc":"190 -170"},
+{"category":"input", "key":-1, "loc":"-270 -360"},
+{"category":"input", "key":-6, "loc":"-270 -300"},
+{"category":"not", "key":-7, "loc":"-150 -360"},
+{"category":"not", "key":-8, "loc":"-150 -300"},
+{"category":"and", "key":-9, "loc":"-30 -350"},
+{"category":"and", "key":-10, "loc":"-30 -290"},
+{"category":"and", "key":-11, "loc":"-30 -230"},
+{"category":"and", "key":-12, "loc":"-30 -170"}
+ ],
+  "linkDataArray": [ 
+{"from":-6, "to":-8, "fromPort":"", "toPort":"in"},
+{"from":-1, "to":-7, "fromPort":"", "toPort":"in"},
+{"from":-12, "to":-5, "fromPort":"out", "toPort":""},
+{"from":-11, "to":-4, "fromPort":"out", "toPort":""},
+{"from":-10, "to":-3, "fromPort":"out", "toPort":""},
+{"from":-9, "to":-2, "fromPort":"out", "toPort":""},
+{"from":-7, "to":-9, "fromPort":"out", "toPort":"in1"},
+{"from":-8, "to":-9, "fromPort":"out", "toPort":"in2"},
+{"from":-8, "to":-10, "fromPort":"out", "toPort":"in2"},
+{"from":-1, "to":-12, "fromPort":"", "toPort":"in2"},
+{"from":-6, "to":-12, "fromPort":"", "toPort":"in1"},
+{"from":-6, "to":-11, "fromPort":"", "toPort":"in1"},
+{"from":-7, "to":-11, "fromPort":"out", "toPort":"in2"},
+{"from":-1, "to":-10, "fromPort":"", "toPort":"in1"}
+ ]}
