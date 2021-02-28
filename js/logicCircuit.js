@@ -314,6 +314,7 @@ function save() {
   document.getElementById("mySavedModel").value = myDiagram.model.toJson();
   myDiagram.isModified = false;
 }
+
 function load() {
   myDiagram.model = go.Model.fromJson(document.getElementById("mySavedModel").value);
 }
