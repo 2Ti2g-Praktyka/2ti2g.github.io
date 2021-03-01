@@ -211,8 +211,8 @@
 
 							<h3>Kodery</h3>
 
-							<figure class="figure d-block text-center float-lg-end ms-lg-3">
-								<img class="figure-img img-fluid rounded" src="../img/uklady-2.jpg" alt="">
+							<figure class="figure d-block float-lg-end ms-lg-3 text-center">
+								<img class="figure-img img-fluid rounded border border-3" src="../img/uklady-2.jpg" alt="">
 								<figcaption class="figure-caption">Koder priorytetowy</figcaption>
 							</figure>
 
@@ -227,7 +227,7 @@
 							<p>Dekoder to układ kombinacyjny. Posiada on n wejść oraz <span class="math-2">k=2<sup>n</sup></span> wyjść. Jego działanie polega na zamianie naturalnego kodu binarnego (o długości n), lub każdego innego kodu, na kod „<span class="math-2">1 z k</span>” (o długości k). Działa odwrotnie do kodera, tzn. zamienia kod binarny na jego reprezentację w postaci tylko jednego wybranego wyjścia. W zależności od ilości wyjść nazywa się go dekoderem <span class="math-2">1 z N</span>.</p>
 							
 							<figure class="figure d-block text-center">
-								<img class="figure-img img-fluid rounded" src="../img/uklady.png" alt="">
+								<img class="figure-img img-fluid rounded border border-3" src="../img/uklady.png" alt="">
 								<figcaption class="figure-caption">Prosty dekoder</figcaption>
 							</figure>
 
@@ -288,8 +288,8 @@
 
 							<h3>Multipleksery</h3>
 
-							<figure class="figure d-block text-center float-lg-end ms-lg-3">
-								<img class="figure-img img-fluid rounded" src="../img/uklady-3.png" alt="">
+							<figure class="figure d-block float-lg-end ms-lg-3 text-center">
+								<img class="figure-img img-fluid rounded border border-3" src="../img/uklady-3.png" alt="">
 								<figcaption class="figure-caption">Multiplekser</figcaption>
 							</figure>
 
@@ -347,15 +347,15 @@
 										<td>0</td>
 									</tr>
 								</tbody>
-								<caption style="text-align: center;">Tablica prawdy dla multipleksera z dwoma wejściami danych x i wejściem strobującym S.</caption>
+								<caption style="text-align: center">Tablica prawdy dla multipleksera z dwoma wejściami danych x i wejściem strobującym S.</caption>
 							</table>
 
 							<p>Multiplekser można zbudować także z dekodera o takiej liczbie wejść, ile wejść adresowych posiada dany multiplekser oraz bramek AND. Do jednego wejścia każdej bramki AND należy podłączyć odpowiednie wyjście dekodera, do drugiego – odpowiednią linię wejściową x<sub>i</sub>. Wyjścia wszystkich bramek AND należy podłączyć do wejść bramki OR.</p>
 
 							<h3>Demultipleksery</h3>
 
-							<figure class="figure d-block text-center float-lg-end ms-lg-3">
-								<img class="figure-img img-fluid rounded" src="../img/uklady-4.png" alt="" width="200px">
+							<figure class="figure d-block float-lg-end ms-lg-3 text-center">
+								<img class="figure-img img-fluid rounded border border-3" src="../img/uklady-4.png" alt="" width="200px">
 								<figcaption class="figure-caption">Symbol graficzny demultipleksera</figcaption>
 							</figure>
 
@@ -367,33 +367,44 @@
 
 							<h3>Sumatory</h3>
 
-							<figure class="figure d-block text-center float-lg-end ms-lg-3">
-								<img class="figure-img img-fluid rounded" src="../img/uklady-5.png" alt="">
-								<figcaption class="figure-caption">Sumator pełny 1-bitowy</figcaption>
-							</figure>
+							<div class="row flex-row-reverse">
+								<div class="col-lg-4 col-xxl-3 d-flex flex-wrap justify-content-evenly align-content-lg-start justify-content-lg-end transition-width">
+									<figure class="figure d-lg-block mt-lg-3 text-center">
+										<img class="figure-img img-fluid rounded border border-3" src="../img/uklady-5.png" alt="">
+										<figcaption class="figure-caption">Sumator pełny 1-bitowy</figcaption>
+									</figure>
 
-							<p>Sumator to układ kombinacyjny, który wykonuje operacje dodawania liczb dwójkowych. Sumatory dzielą się na:</p>
+									<figure class="figure d-lg-block mt-lg-5 mt-xxl-3 text-center">
+										<img class="figure-img img-fluid rounded border border-3" src="../img/uklady-6.png" alt="">
+										<figcaption class="figure-caption">Sumator półpełny</figcaption>
+									</figure>
+								</div>
 
-							<ul>
-								<li>szeregowe (serial adder): podczas każdej operacji dodają one dwa bity składników oraz bit przeniesienia.</li>
-								<li>równoległe (parallel adder): wielopozycyjne, dodają do siebie jednocześnie bity ze wszystkich pozycji, a przeniesienie realizowane jest w zależności od sposobu połączenia symulatorów jednobitowych.</li>
-							</ul>
-							
-							<p>Sumatory równoległe podzielone są na dwie grupy:</p>
+								<div class="col-lg-8 col-xxl-9 transition-width">
+									<p>Sumator to układ kombinacyjny, który wykonuje operacje dodawania liczb dwójkowych. Sumatory dzielą się na:</p>
 
-							<ul>
-								<li>z przeniesieniami szeregowymi (ripple-carry adder),</li>
-								<li>z przeniesieniami równoległymi (carry-look-ahead adder).</li>
-							</ul>
+									<ul>
+										<li>szeregowe (serial adder): podczas każdej operacji dodają one dwa bity składników oraz bit przeniesienia.</li>
+										<li>równoległe (parallel adder): wielopozycyjne, dodają do siebie jednocześnie bity ze wszystkich pozycji, a przeniesienie realizowane jest w zależności od sposobu połączenia symulatorów jednobitowych.</li>
+									</ul>
+									
+									<p>Sumatory równoległe podzielone są na dwie grupy:</p>
 
-							<p>Każdy sumator charakteryzuje się typem ukończenia:</p>
+									<ul>
+										<li>z przeniesieniami szeregowymi (ripple-carry adder),</li>
+										<li>z przeniesieniami równoległymi (carry-look-ahead adder).</li>
+									</ul>
 
-							<ul>
-								<li>sumator pełny (full adder)</li>
-								<li>sumator półpełny (half adder)</li>
-							</ul>
-							
-							<p>Każdy sumator pełny składa się z dwóch sumatorów półpełnych.</p>
+									<p>Każdy sumator charakteryzuje się typem ukończenia:</p>
+
+									<ul>
+										<li>sumator pełny (full adder)</li>
+										<li>sumator półpełny (half adder)</li>
+									</ul>
+									
+									<p>Każdy sumator pełny składa się z dwóch sumatorów półpełnych.</p>
+								</div>
+							</div>
 
 							<table class="table table-striped table-bordered table-sm text-center">
 								<thead>
