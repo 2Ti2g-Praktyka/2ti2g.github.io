@@ -186,15 +186,26 @@ figure
     border: rgba(0, 0, 0, 0.4);
 }
 
-#go-top
+.btn
 {
-    display: none;
-    position: sticky;
-    bottom: 35px;
-    left: 100%;
+    float: left;
+    margin: 5px;
+    background-color: white;
 }
 
-.btn
+.btn:hover
+{
+    background-color: #eb4343;
+    color: white;
+}
+
+.btn:focus
+{
+    box-shadow: none;
+    outline: none;
+}
+
+.btn-scroll
 {
     padding: 12px 12px 17px 12px;
     border: none;
@@ -205,13 +216,21 @@ figure
     transition: background-color 0.4s, color 0.4s, left 0.3s;
 }
 
-.btn:hover
+#go-top
+{
+    display: none;
+    position: sticky;
+    bottom: 35px;
+    left: 100%;
+}
+
+.btn-scroll:hover
 {
     background-color: rgba(255, 255, 255);
     color: #e91010;
 }
 
-.btn:focus
+.btn-scroll:focus
 {
     outline: none;
     box-shadow: 0 0 10px 3px #e910104f;
@@ -224,7 +243,7 @@ figure
         left: calc(50% - 30px);
     }
 
-    .btn
+    .btn-scroll
     {
         font-size: 25px;
     }
