@@ -393,7 +393,7 @@
 
 							</div>
 							
-							<h2 style="margin-top: 50px" id="symulator">Symulator układu</h2>
+							<h2 class="mt-4" id="symulator">Symulator układu</h2>
 
 							<div id="sample">
 
@@ -402,15 +402,17 @@
 									<div id="myDiagramDiv" style="flex-grow: 1; height: 500px; border: solid 1px black"></div>
 								</div>
 
-								<div style="margin-top: 10px">
+								<div>
 
-									<div>
-										<button type="button" id="saveModel" onclick="save()">Zapisz</button>
-										<button type="button" onclick="load()">Wczytaj</button>
-										Model zapisany w formacie JSON:
+									<div class="d-flex flex-wrap justify-content-center justify-content-sm-start my-2">
+										<button class="btn ms-sm-0" type="button" id="saveModel" onclick="save()">Zapisz</button>
+										<button class="btn" type="button" onclick="load()">Wczytaj</button>
+										<div class="clearfix"></div>
 									</div>
 
-									<textarea id="mySavedModel" style="margin-top: 10px; width:100%; height:200px;">
+									<p class="m-0 mb-1">Model zapisany w formacie JSON:</p>
+
+									<textarea id="mySavedModel" style="width:100%; height:200px">
 { "class": "GraphLinksModel",
   "linkFromPortIdProperty": "fromPort",
   "linkToPortIdProperty": "toPort",
@@ -517,7 +519,7 @@
 								</li>
 							</ul>
 								
-							<a href="#" id="go-top" class="btn" role="button">
+							<a href="#" id="go-top" class="btn-scroll" role="button">
 								<i class="icon-up-open"></i>
 							</a>
 
