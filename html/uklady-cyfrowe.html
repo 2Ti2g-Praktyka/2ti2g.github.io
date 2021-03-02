@@ -451,18 +451,19 @@
 								</caption>
 							</table>
 
-							<h2 style="margin-top: 50px" id="symulator">Symulator układu</h2>
+							<h2 class="mt-4" id="symulator">Symulator układu</h2>
 
 							<div id="sample">
 
 								<p>Poniższy symulator przedstawia działanie kilku wybranych układów cyfrowych.</p>
 
-								<div style="margin-bottom: 10px">
-									<button type="button" onclick="loadKoder()">Koder 4 do 2</button>
-									<button type="button" onclick="loadDekoder()">Dekoder 2-bitowy</button>
-									<button type="button" onclick="loadMultiplekser()">Multiplekser 4-bitowy</button>
-									<button type="button" onclick="loadSumator()">Sumator pełny 1-bitowy</button>
-									<button type="button" onclick="loadPrzerzutnik()">Przerzutnik RS</button>
+								<div class="d-flex flex-wrap justify-content-center mb-3">
+									<button class="btn" type="button" onclick="loadKoder()">Koder 4 do 2</button>
+									<button class="btn" type="button" onclick="loadDekoder()">Dekoder 2-bitowy</button>
+									<button class="btn" type="button" onclick="loadMultiplekser()">Multiplekser 4-bitowy</button>
+									<button class="btn" type="button" onclick="loadSumator()">Sumator pełny 1-bitowy</button>
+									<button class="btn" type="button" onclick="loadPrzerzutnik()">Przerzutnik RS</button>
+									<div class="clearfix"></div>
 								</div>
 
 								<div style="width: 100%; display: flex; justify-content: space-between">
@@ -470,15 +471,17 @@
 									<div id="myDiagramDiv" style="flex-grow: 1; height: 500px; border: solid 1px black"></div>
 								</div>
 
-								<div style="margin-top: 10px">
+								<div>
 
-									<div>
-										<button type="button" id="saveModel" onclick="save()">Zapisz</button>
-										<button type="button" onclick="load()">Wczytaj</button>
-										Model zapisany w formacie JSON:
+									<div class="d-flex flex-wrap justify-content-center justify-content-sm-start my-2">
+										<button class="btn ms-sm-0" type="button" id="saveModel" onclick="save()">Zapisz</button>
+										<button class="btn" type="button" onclick="load()">Wczytaj</button>
+										<div class="clearfix"></div>
 									</div>
 
-									<textarea id="mySavedModel" style="margin-top: 10px; width:100%; height:200px;">
+									<p class="m-0 mb-1">Model zapisany w formacie JSON:</p>
+
+									<textarea id="mySavedModel" style="width:100%; height:200px">
 { "class": "GraphLinksModel",
   "linkFromPortIdProperty": "fromPort",
   "linkToPortIdProperty": "toPort",
@@ -624,7 +627,7 @@
 								</li>
 							</ul>
 
-							<a href="#" id="go-top" class="btn" role="button">
+							<a href="#" id="go-top" class="btn-scroll" role="button">
 								<i class="icon-up-open"></i>
 							</a>
 
